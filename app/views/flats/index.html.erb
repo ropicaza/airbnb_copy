@@ -1,22 +1,2 @@
-<div class="container mt-3 mb-3">
-    <div class="row  justify-content-center">
-      <% @flats.each do |flat| %>
-        <div class="col-6 col-md-4 col-lg-3 mt-3">
-          <div class="card">
-            <% if flat.photo.attached? %>
-              <%= cl_image_tag flat.photo.key, class: "card-img-top", alt:"Flat image", crop: :thumb %>
-            <% else %>
-              <img src="https://www.timandorra.com/wp-content/uploads/2016/11/Imagen-no-disponible.png" alt="flat image">
-            <% end %>
-              <div class="card-body bg-light">
-                <h3 class="card-title"><strong><%= link_to flat.name, flat_path(flat) %></strong></h3>
-                <p><%= link_to  "View more details", flat_path(flat) %></p>
-              </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <ul>
-  </ul>
-</div>
+<h1>Flats#index</h1>
+<p>Find me in app/views/flats/index.html.erb</p>
