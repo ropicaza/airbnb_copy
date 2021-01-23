@@ -5,12 +5,14 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @booking = Booking.new
   end
 
   def create
-    @flat = Flat.new(flat_params)
+    @flat = Flat.new(flats_params)
+    @flat.owner = current_user
     if @flat.save
-      redirect_to flat_path(@flat)
+      redirect_to @flat
     else
       render :new
     end
@@ -22,7 +24,7 @@ class FlatsController < ApplicationController
 
   private
 
-  def flat_params
+  def flats_params
     params.require(:flat).permit(:name, :description, :price, :location)
   end
 end
