@@ -1,9 +1,9 @@
 class Booking < ApplicationRecord
-  belongs_to :renter, foreign_key: "user_id", class_name: "User"
   belongs_to :flat
+  belongs_to :renter, foreign_key: "user_id", class_name: "User"
+  has_one :owner, through: :flats
 
-
-  #validates :start_date, presence: true
-  #validates :end_date, presence: true
-  #validates :status, presence: true
+  validates :end_date, presence: true
+  validates :start_date, presence: true
+  validates :status, presence: true
 end
