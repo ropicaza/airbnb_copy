@@ -2,6 +2,43 @@
   <div class="container">
     <h1>Airbnb Turna Style</h1>
     <p>Book your next stay.</p>
-    <a class="btn btn-primary" href="#">Show flats</a>
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline justify-content-start">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 mb-3" type="submit">Search</button>
+      </form>
+    </nav>
+    <%# <%= link_to "Show Flats", flat_path(@flat)  %>
+    <a class="btn btn-primary mt-4" href="#">Show flats</a>
   </div>
+</div>
+
+<div class="container">
+  <h2 class= "text-center my-5">Los mejores alojamientos en tu destino</h2>
+    <div class="cards justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://a0.muscache.com/im/pictures/437e19aa-22de-495a-b334-c3b9912f8de1.jpg?aki_policy=xx_large" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Hermoso departamento en Palermo.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://a0.muscache.com/im/pictures/1fd68e78-ce7d-400e-846d-5498fcaf862a.jpg?im_w=960" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Hermoso departamento en Recoleta.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://a0.muscache.com/im/pictures/miso/Hosting-45784353/original/30a25d70-696b-4d91-9926-214a0ec787f8.jpeg?im_w=960" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Ideal para tu descanso en la ciudad.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://a0.muscache.com/im/pictures/18cb283f-6ade-45c0-bab5-e2b68e8e7c4a.jpg?im_w=960" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Loft totalmente equipado, en el corazón de San Telmo </p>
+        </div>
+      </div>
+    </div>
 </div>
