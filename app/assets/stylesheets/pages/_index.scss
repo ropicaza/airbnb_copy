@@ -1,2 +1,84 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.btn {
+	border-radius: 50px;
+	color: black;
+	border-color: #B0B0B0;
+}
+
+.btn:hover {
+	background-color: transparent;
+	color: black;
+	border-color: black;
+}
+
+  
+#map {
+	height: 100vh;
+	position: sticky;
+	top: 0;
+	width: 50vh;
+	width: auto!important;
+}
+
+
+body {
+	margin: 0;
+	margin-left: 5px;
+  background: #F4F4F4;
+}
+
+.index-container {
+  display: flex;
+}
+
+.skeleton {
+	flex-grow: 1;
+	background-color: white;
+}
+
+
+.card-product {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  display: flex;
+	align-items: center;
+	padding: 5px;
+	margin: 5px;
+	border-top: solid;
+	border-color: #92a8d1;
+	border-width: thin
+}
+
+.card-product img {
+  height: 100%;
+  width: 300px;
+	border-radius: 5%;
+}
+
+
+.card-product p {
+	color: #7A7171;
+}
+
+.card-product h2 {
+	color: #222222;
+}
+
+.card-product .price {
+	color: #222222;
+	border-style: solid;
+	border-color: #DDDDDD;
+	border-radius: 5%;
+	border-width: 1px;
+	padding: 2px;
+}
+
+
+.card-product-infos {
+	height: 100%;
+	margin-left: 5px;
+}
+
