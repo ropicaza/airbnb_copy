@@ -12,6 +12,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    @bookings = Booking.where(renter: current_user)
+  end
+
+
   private
 
   def bookings_params
