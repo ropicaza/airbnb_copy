@@ -5,13 +5,13 @@
 			<p>300+ stays · Feb 10 - 12</p>
 			<h1>Stays in Barcelona</h1>
 
-			<button type="button" class="btn btn-outline-secondary border-radius: 50">Type of place</button>
+			<button type="button" class="btn btn-outline-secondary rounded-pill">Type of place</button>
 
-			<button type="button" class="btn btn-outline-secondary border-radius: 50">Price</button>
+			<button type="button" class="btn btn-outline-secondary rounded-pill">Price</button>
 
-			<button type="button" class="btn btn-outline-secondary border-radius: 50">Instant Book</button>
+			<button type="button" class="btn btn-outline-secondary rounded-pill">Instant Book</button>
 
-			<button type="button" class="btn btn-outline-secondary border-radius: 50">More filters</button>	
+			<button type="button" class="btn btn-outline-secondary rounded-pill">More filters</button>	
 			
 			<p>Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>	
 		</div>
@@ -26,8 +26,8 @@
 					<p>Entire apartment in Ciutat Vella</p>
 					<h4>OLA LIVING BORN 3</h4>
 					<p>2 guests - Studio - 1 bed</p>
-					<div class="price"><i class="fas fa-tag"></i> New lower price</div>
-					<i class="fas fa-star"></i>
+					<div class="lower-price"><i class="fas fa-tag"></i> New lower price</div>
+					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
 				</div>
 			</div>
 
@@ -37,8 +37,8 @@
 					<p>Entire apartment in Ciutat Vella</p>
 					<h4>OLA LIVING BORN 3</h4>
 					<p>2 guests - Studio - 1 bed</p>
-					<div class="price"><i class="fas fa-tag"></i> New lower price</div>
-					<i class="fas fa-star"></i>
+					<div class="lower-price"><i class="fas fa-tag"></i> New lower price</div>
+					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
 				</div>
 			</div>
 
@@ -48,10 +48,12 @@
 					<p>Entire apartment in Ciutat Vella</p>
 					<h4>OLA LIVING BORN 3</h4>
 					<p>2 guests - Studio - 1 bed</p>
-					<div class="price"><i class="fas fa-tag"></i> New lower price</div>
-					<i class="fas fa-star"></i>
+					<div class="lower-price"><i class="fas fa-tag"></i> New lower price</div>
+					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
 				</div>
 			</div>		
+
+
 		</div>	
 	</div>
 		<img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoicGluZG9uZ2EiLCJhIjoiY2syNnZteGl3MzYydTNubXRvMTV4aXM2MCJ9.qZ9hFC63Gxuw9v5PH0U0Ag'>

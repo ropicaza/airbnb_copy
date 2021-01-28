@@ -2,7 +2,6 @@
 @import "home";
 
 .btn {
-	border-radius: 50px;
 	color: black;
 	border-color: #B0B0B0;
 }
@@ -12,7 +11,6 @@
 	color: black;
 	border-color: black;
 }
-
   
 #map {
 	height: 100vh;
@@ -44,7 +42,6 @@ body {
   height: 200px;
   background: white;
   display: flex;
-	align-items: center;
 	padding: 5px;
 	margin: 5px;
 	border-top: solid;
@@ -67,7 +64,7 @@ body {
 	color: #222222;
 }
 
-.card-product .price {
+.card-product .lower-price {
 	color: #222222;
 	border-style: solid;
 	border-color: #DDDDDD;
@@ -83,57 +80,75 @@ body {
 }
 
 
-
-
 h2 {
 	font-weight: 800 !important;
-	  margin-bottom: 0px !important;
-	  font-size: 25px !important;
-	  line-height: 30px !important;
-	  letter-spacing: normal !important;
-	  padding-top: 2px !important;
-	  padding-bottom: 2px !important;
-	  color: rgb(72, 72, 72) !important;
-  }
+	margin-bottom: 0px !important;
+	font-size: 25px !important;
+	line-height: 30px !important;
+	letter-spacing: normal !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	color: rgb(72, 72, 72) !important;
+}
   
   
-  figure {
-  /*   width:30%; */
+figure {
+	/*   width:30%; */
 	position:relative;
 	padding:5px;
-  }
-  
-  figure img {
+}
+
+figure img {
 	width:100%;
 	border-radius:3px;
-  }
-  
-  figcaption.inside{
+}
+
+figcaption.inside{
 	position:absolute;
 	top:20px;
 	left:20px;
-   }
-  
-  figcaption.inside h2 {
+	}
+
+figcaption.inside h2 {
 	color:white;
-  }
-  
-  span {
+}
+
+span {
 	display:block;
-  }
-  
-  .text-desc {
+}
+
+.text-desc {
 	font-size:14px!important;
-  /*       font-size: 16px !important; */
-	  line-height: 22px !important;
-	  padding-top: 0px !important;
-	  padding-bottom: 0px !important;
-	  color: rgb(72, 72, 72) !important;
-	  font-weight: normal !important;
-	  margin-top: 0px !important;
-  }
-  
-  .text-color {
+	/*       font-size: 16px !important; */
+	line-height: 22px !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	color: rgb(72, 72, 72) !important;
+	font-weight: normal !important;
+	margin-top: 0px !important;
+}
+
+.text-color {
 	color:rgb(255, 180, 0)!important;
-	font-size:12px!important;
-  }
+	font-size:14px!important;
+}
+	
+.text-color-denied {
+	color:red!important;
+	font-size:14px!important;
+}
+
+.text-color-approved {
+	color:green!important;
+	font-size:14px!important;
+}
+
+
+
+.fa-star {
+	color:#FF385C
+}
+
+
+
+
