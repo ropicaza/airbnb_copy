@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
   
 
   <%= link_to root_path do %>
@@ -20,7 +20,7 @@
           <%= image_tag "https://images.vexels.com/media/users/3/145908/list/52eabf633ca6414e60a7677b0b917d92-creador-de-avatar-masculino.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Host Your Home", new_flat_path, class: "dropdown-item" %>
-            <%= link_to "Your flats and reservations", bookings_path, class: "dropdown-item" %>
+            <%= link_to "My Flats & Reservations", bookings_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
