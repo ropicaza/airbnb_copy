@@ -7,6 +7,7 @@ class FlatsController < ApplicationController
     @flats = Flat.all
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+    @flat_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id ).sample
   end
 
   def create
