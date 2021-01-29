@@ -72,24 +72,24 @@
 <div class="container mt-3">
 <h1>Other Flats Nearby</h1>
   <div class="row">
-  <% @flats.each do |flat| %>
-  <% if flat.location == @flat.location %>
-  <div class="col-6 col-md-4 col-lg-3 mt-3">
-    <div class="card">
-      <img class="card-img-top" src=<%= cl_image_tag flat.photos %>>
-      <div class="card-body bg-light">
-        <h5 class="card-title"> <strong><%= flat.name %></h5></strong>
-        <p class="card-text"> <%=flat.location %>
+    <div class="col-6 col-md-4 col-lg-3 mt-3">
+      <div class="card">
+      <% if @flat_nearby %>
+        <%= cl_image_tag @flat_nearby.photos.first.key %>
+        <div class="card-body bg-light">
+          <h5 class="card-title"> <strong><%= @flat_nearby.name %></h5></strong>
+          <p class="card-text"> <%= @flat_nearby.location %>
         <div class="m-3">
-          <i class="fas fa-euro-sign"></i> <span><%= flat.price %></span>
+          <i class="fas fa-euro-sign"></i> <span><%= @flat_nearby.price %></span>
         </div>
-      </div>
+       </div>
         <div class="m-3">
-          <%= link_to "More Info", flat_path(flat)%>
+          <%= link_to "More Info", flat_path(@flat_nearby)%>
         </div>
+      <% else %>
+        <p>No flats nearby</p>
+      <% end %>
     </div>
   </div>
-  <% end %>
-  <% end %>
   </div>
 </div>
