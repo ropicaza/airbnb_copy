@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(renter: current_user)
+    @flats = Flat.where(owner: current_user)
   end
 
 

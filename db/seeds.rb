@@ -22,6 +22,9 @@ IMAGES = [
   ["https://res.cloudinary.com/dmtio0viw/image/upload/v1611864475/Flats/Pic21_ihshdm.jpg", "https://res.cloudinary.com/dmtio0viw/image/upload/v1611864473/Flats/Pic22_lrqxif.jpg", "https://res.cloudinary.com/dmtio0viw/image/upload/v1611864473/Flats/Pic23_vs4upj.jpg", "https://res.cloudinary.com/dmtio0viw/image/upload/v1611864474/Flats/Pic24_kwofgp.jpg", "https://res.cloudinary.com/dmtio0viw/image/upload/v1611864474/Flats/PIc25_bwugx1.jpg"]
 ]
 
+arr_true = [true, false]
+
+
 number_of_users = 5
 renters = []
 owners = []
@@ -30,7 +33,7 @@ number_of_users.times do |i|
   if i > number_of_users / 2
     owners << user
     rand(1..3).times do
-      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample)
+      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample, wifi: arr_true.sample, pool: arr_true.sample, bathroom: rand(1..5,), bedroom: rand(1..6), rating: rand(1.0..5.0))
       IMAGES[i].each do |img|
       img_file = URI.open(img)
       flat.photos.attach(io: img_file, filename: 'flat_img.png', content_type: 'image/png')
@@ -38,7 +41,7 @@ number_of_users.times do |i|
       end
       rand(2..5).times do
         start_date = Date.today + rand(3..15).days
-        Booking.create!(renter: renters.sample, flat: Flat.last, start_date: start_date, end_date: start_date + rand(3..15).days, status: "pending" )
+        Booking.create!(renter: renters.sample, flat: Flat.last, start_date: start_date, end_date: start_date + rand(3..15).days, status: "pending"  )
       end
     end
   else
