@@ -1,45 +1,40 @@
-	<div class="index-container">
-
+<div class="index-container">
 	<div class="skeleton">
 		<div class="intro">
 			<p>300+ stays · Feb 10 - 12</p>
-			<h1>Stays in Barcelona</h1>
+			<h1>Stays in Palermo</h1>
+				<div class="d-flex justify-content-left">
+					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Type of place</button>
+					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Price</button>
+					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Instant Book</button>
+					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">More filters</button>	
+				</div>
+			<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>	
+	</div>
 
-			<button type="button" class="btn btn-outline-secondary rounded-pill">Type of place</button>
-
-			<button type="button" class="btn btn-outline-secondary rounded-pill">Price</button>
-
-			<button type="button" class="btn btn-outline-secondary rounded-pill">Instant Book</button>
-
-			<button type="button" class="btn btn-outline-secondary rounded-pill">More filters</button>	
-			
-			<p>Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>	
+	<div class="cards">
+		<div class="card-product">
+			<img src="https://a0.muscache.com/im/pictures/e898ec72-d7c9-44e2-bd85-52902be0464c.jpg?im_w=960" />
+			<div class="card-product-infos">
+				<p>Entire apartment in Ciutat Vella</p>
+				<h4>OLA LIVING BORN 3</h4>
+				<p>2 guests - Studio - 1 bed</p>
+					<div class="lower-price">
+						<i class="fas fa-tag"></i> New lower price
+					</div>
+					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+			</div>
 		</div>
 
-
-
-
-		<div class="cards">
-			<div class="card-product">
-				<img src="https://a0.muscache.com/im/pictures/e898ec72-d7c9-44e2-bd85-52902be0464c.jpg?im_w=960" />
-				<div class="card-product-infos">
-					<p>Entire apartment in Ciutat Vella</p>
-					<h4>OLA LIVING BORN 3</h4>
-					<p>2 guests - Studio - 1 bed</p>
+		<div class="card-product">
+			<img src="https://a0.muscache.com/im/pictures/e898ec72-d7c9-44e2-bd85-52902be0464c.jpg?im_w=960" />
+			<div class="card-product-infos">
+				<p>Entire apartment in Ciutat Vella</p>
+				<h4>OLA LIVING BORN 3</h4>
+				<p>2 guests - Studio - 1 bed</p>
 					<div class="lower-price"><i class="fas fa-tag"></i> New lower price</div>
-					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
-				</div>
-			</div>
-
-			<div class="card-product">
-				<img src="https://a0.muscache.com/im/pictures/e898ec72-d7c9-44e2-bd85-52902be0464c.jpg?im_w=960" />
-				<div class="card-product-infos">
-					<p>Entire apartment in Ciutat Vella</p>
-					<h4>OLA LIVING BORN 3</h4>
-					<p>2 guests - Studio - 1 bed</p>
-					<div class="lower-price"><i class="fas fa-tag"></i> New lower price</div>
-					<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
-				</div>
+				  	<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+				  </div>
 			</div>
 
 			<div class="card-product">
