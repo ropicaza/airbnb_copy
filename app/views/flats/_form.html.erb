@@ -1,0 +1,15 @@
+<div class="container my-5 py-5 bg-white">
+  <h2 class="text-center pb-3">Tell us more about your place</h2>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name, label: 'Flat Name' %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :bathroom, label: 'Bathrooms', :collection => 1..5 %>
+    <%= f.input :bedroom, label: 'Bedrooms', :collection => 1..5 %>
+    <%= f.input :wifi, as: :boolean %>
+    <%= f.input :pool, as: :boolean %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
