@@ -1,17 +1,20 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
-    @flats = Flat.all
+    @flats = policy_scope(Flat).order(created_at: :desc)
   end
 
   def show
     @flats = Flat.all
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+    authorize @flat
   end
 
   def create
     @flat = Flat.new(flats_params)
     @flat.owner = current_user
+    authorize @flat
     if @flat.save
       redirect_to @flat
     else
@@ -21,6 +24,7 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   private
