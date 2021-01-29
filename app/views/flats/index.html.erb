@@ -15,7 +15,7 @@
 	<div class="cards">
 		<% @flats.each do |flat| %>
 			<div class="card-product">
-				<img src="https://a0.muscache.com/im/pictures/e898ec72-d7c9-44e2-bd85-52902be0464c.jpg?im_w=960" />
+				<%= cl_image_tag flat.photos.first.key %>
 				<div class="card-product-infos">
 					<p>Entire apartment in <%= flat.location %></p>
 					<h4><%= flat.name %></h4>
