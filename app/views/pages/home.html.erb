@@ -31,11 +31,11 @@
 
 <h2 class= "text-center my-5">Live anywhere</h2>
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100 d-flex">
-          <% @flats.each do |flat| %>
+<div class="container my-3">
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-12 col-md-4 col-lg-3 mt-3">
+        <div class="card h-100">
           <%= cl_image_tag flat.photos.first.key %>
           <div class="card-body">
             <p>Entire apartment in <%= flat.location %></p>
@@ -46,9 +46,9 @@
               </div>
                 <p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
           </div>
-        <% end %>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
 </div>
 
