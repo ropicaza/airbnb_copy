@@ -5,6 +5,15 @@ class FlatsController < ApplicationController
 
   def index
     @flats = policy_scope(Flat).order(created_at: :desc)
+
+    @flats_geo = @flats.geocoded
+    @markers = @flats_geo.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+      }
+    end
   end
 
   def show

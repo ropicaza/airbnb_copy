@@ -33,7 +33,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise', '~> 4.2'
 gem 'cloudinary', '~> 1.16.0'
-# gem 'social-share-button'
+gem 'social-share-button'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
