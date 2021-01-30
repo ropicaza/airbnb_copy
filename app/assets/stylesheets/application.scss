@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "social-share-button";
 
 // Your CSS partials
 @import "components/index";
@@ -16,4 +17,5 @@
 @import "pages/show";
 @import "pages/bookings";
 @import "components/card";
+@import "components/icons";
 @import "flatpickr/dist/flatpickr";

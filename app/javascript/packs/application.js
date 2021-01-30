@@ -22,7 +22,9 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+
 // External imports
+import "social-share-button";
 import "bootstrap";
 import "../plugins/flatpickr";
 
