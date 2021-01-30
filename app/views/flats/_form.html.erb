@@ -2,6 +2,7 @@
   <h2 class="text-center pb-3">Tell us more about your place</h2>
   <%= simple_form_for @flat do |f| %>
     <%= f.input :name, label: 'Flat Name' %>
+    <%= f.input :address %>
     <%= f.input :description, as: :text %>
     <%= f.input :location %>
     <%= f.input :price %>
