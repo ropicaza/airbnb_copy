@@ -16,7 +16,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.where(renter: current_user)
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @bookings_renter = Booking.where(renter: current_user)
     @flats = Flat.where(owner: current_user)
   end
 
