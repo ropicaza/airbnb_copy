@@ -24,9 +24,9 @@ require("channels")
 
 
 // External imports
-import "social-share-button";
 import "bootstrap";
 import "../plugins/flatpickr";
+import "social-share-button";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
