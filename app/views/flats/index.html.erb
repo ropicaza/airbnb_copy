@@ -14,7 +14,7 @@
 
 	<div class="cards">
 		<% @flats.each do |flat| %>
-			<div class="card-product">
+			<div class="card-product h-100">
 				<%= cl_image_tag flat.photos.sample.key %>
 				<div class="card-product-infos">
 					<p>Entire apartment in <%= flat.location %></p>
