@@ -44,7 +44,7 @@
         <div class="flex">
           <div class="d-flex">
             <div class="dolar p-2">
-              <i class="fas fa-dollar-sign"></i> 
+              <i class="fas fa-dollar-sign"></i>
               <%= @flat.price %>
             </div>
 
@@ -65,8 +65,8 @@
                 <%= @flat.bathroom%>
                 <i class="fas fa-bath"></i>
               </div>
-            <% end %>        
-            
+            <% end %>
+
             <% if @flat.bedroom  %>
                 <div class="bedroom p-2">
                   <%= @flat.bedroom%>
@@ -81,10 +81,7 @@
           <h6 class="no-mb">Share</h6>
 
           <div class="flex">
-            <i class="fab fa-facebook-square fa-2x"></i>
-            <i class="fab fa-twitter fa-2x"></i>
-            <i class="fab fa-pinterest-p fa-2x"></i>
-            <i class="fas fa-envelope fa-2x"></i>
+          <%= social_share_button_tag(@flat.name) %>
           </div>
         </div>
       </div>
@@ -101,11 +98,20 @@
       <% if @flat_nearby %>
         <%= cl_image_tag @flat_nearby.photos.first.key %>
         <div class="card-body bg-light">
+          <p class="color-text">Entire apartment in <%= @flat_nearby.location %></span></p>
           <h5 class="card-title"> <strong><%= @flat_nearby.name %></h5></strong>
-          <p class="card-text"> <%= @flat_nearby.location %>
-        <div class="m-3">
-          <i class="fas fa-euro-sign"></i> <span><%= @flat_nearby.price %></span>
-        </div>
+          <p class="card-text"> <%= @flat_nearby.location %> <br>
+          <i class="fas fa-dollar-sign"></i><%= @flat_nearby.price %>
+          <i class="fas fa-bath"></i>  <%= @flat_nearby.bathroom%>
+          <i class="fas fa-bed"></i> <%= @flat.bedroom%>
+          <% if @flat_nearby.pool  %>
+          <i class="fas fa-swimmer"></i>
+          <% end  %>
+          <% if @flat_nearby.wifi  %>
+          <i class="fas fa-wifi"></i>
+          <% end  %>
+          <p><strong>Rating:</strong> <% @flat_nearby.rating.times do  %> <i class="fas fa-star"></i>
+          <% end %></p>
        </div>
         <div class="m-3">
           <%= link_to "More Info", flat_path(@flat_nearby)%>

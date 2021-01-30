@@ -1,17 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 
-.btn {
-	color: black;
-	border-color: #B0B0B0;
-}
-
-.btn:hover {
-	background-color: transparent;
-	color: black;
-	border-color: black;
-}
-  
 #map {
 	height: 100vh;
 	position: sticky;
@@ -93,4 +82,18 @@ h2 {
 
 .fa-star {
 	color:#FF385C
+}
+
+
+.color-text {
+  color:rgb(163, 39, 1)!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  line-height:16px!important;
+	text-transform:uppercase;
+	margin: 0px;
+}
+
+figure {
+	margin-bottom: 0px;
 }
