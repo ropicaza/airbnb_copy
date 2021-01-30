@@ -1,6 +1,8 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_flat, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @flats = policy_scope(Flat).order(created_at: :desc)
   end
