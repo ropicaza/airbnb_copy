@@ -1,17 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 
-.btn {
-	color: black;
-	border-color: #B0B0B0;
-}
-
-.btn:hover {
-	background-color: transparent;
-	color: black;
-	border-color: black;
-}
-  
 #map {
 	height: 100vh;
 	position: sticky;
@@ -90,65 +79,21 @@ h2 {
 	padding-bottom: 2px !important;
 	color: rgb(72, 72, 72) !important;
 }
-  
-  
-figure {
-	/*   width:30%; */
-	position:relative;
-	padding:5px;
-}
-
-figure img {
-	width:100%;
-	border-radius:3px;
-}
-
-figcaption.inside{
-	position:absolute;
-	top:20px;
-	left:20px;
-	}
-
-figcaption.inside h2 {
-	color:white;
-}
-
-span {
-	display:block;
-}
-
-.text-desc {
-	font-size:14px!important;
-	/*       font-size: 16px !important; */
-	line-height: 22px !important;
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-	color: rgb(72, 72, 72) !important;
-	font-weight: normal !important;
-	margin-top: 0px !important;
-}
-
-.text-color {
-	color:rgb(255, 180, 0)!important;
-	font-size:14px!important;
-}
-	
-.text-color-denied {
-	color:red!important;
-	font-size:14px!important;
-}
-
-.text-color-approved {
-	color:green!important;
-	font-size:14px!important;
-}
-
-
 
 .fa-star {
 	color:#FF385C
 }
 
 
+.color-text {
+  color:rgb(163, 39, 1)!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  line-height:16px!important;
+	text-transform:uppercase;
+	margin: 0px;
+}
 
-
+figure {
+	margin-bottom: 0px;
+}

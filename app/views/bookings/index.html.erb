@@ -1,52 +1,46 @@
 <section id="boat_services" class="my-5">
   <div class="container">
     <div class="title mb-1">
-      <h2>Your reservations</h2>
+      <h2>Your flats</h2>
     </div>
-		
-    <div class="row">
-      <div class="col-md-4">
-        <figure>
-					<img src="https://thumbs4.properati.com/Pi-bn_1Ufw048n5MPDMUgiIp10o=/1080x0/filters:strip_icc()/https%3A%2F%2Fproperati-s3-ar.s3-us-west-2.amazonaws.com%2Fdevelopments%2F6031%2Fhttps-static-tokkobroker-com-dev_pictures-105350561760697991164408345524108417923544260449006125395956453627633425823708-jpg" class="mb-2"alt="">
-					<figcaption class="inside">
-						<h2 class="text-white">Buenos Aires</span></h2>
-					</figcaption>
-					<figcaption class="outside">
-						<p class="small text-color-approved mb-0">Approved</p>
-						<p class="text-desc">Excelente departamento tipo dúplex equipado.</p>
-					</figcaption>
-    		</figure>
-				<button type="button" class="btn btn-outline-secondary w-100">View details</button>
-      </div>
 
-      <div class="col-md-4">
-        <figure>
-					<img src="https://thumbs4.properati.com/Pi-bn_1Ufw048n5MPDMUgiIp10o=/1080x0/filters:strip_icc()/https%3A%2F%2Fproperati-s3-ar.s3-us-west-2.amazonaws.com%2Fdevelopments%2F6031%2Fhttps-static-tokkobroker-com-dev_pictures-105350561760697991164408345524108417923544260449006125395956453627633425823708-jpg" class="mb-2"alt="">
-					<figcaption class="inside">
-						<h2 class="text-white">Buenos Aires</span></h2>
-					</figcaption>
-					<figcaption class="outside">
-						<p class="small text-color mb-0">Pending</p>
-						<p class="text-desc">Excelente departamento tipo dúplex equipado.</p>
-					</figcaption>
-    		</figure>
-				<button type="button" class="btn btn-outline-secondary w-100">View details</button>
-      </div>			
-
-      <div class="col-md-4">
-        <figure>
-					<img src="https://thumbs4.properati.com/Pi-bn_1Ufw048n5MPDMUgiIp10o=/1080x0/filters:strip_icc()/https%3A%2F%2Fproperati-s3-ar.s3-us-west-2.amazonaws.com%2Fdevelopments%2F6031%2Fhttps-static-tokkobroker-com-dev_pictures-105350561760697991164408345524108417923544260449006125395956453627633425823708-jpg" class="mb-2"alt="">
-					<figcaption class="inside">
-						<h2 class="text-white">Buenos Aires</span></h2>
-					</figcaption>
-					<figcaption class="outside">
-						<p class="small text-color-denied mb-0">Denied</p>
-						<p class="text-desc">Excelente departamento tipo dúplex equipado.</p>
-					</figcaption>
-    		</figure>
-				<button type="button" class="btn btn-outline-secondary w-100">View details</button>
-      </div>
-
-
+<div class="container mt-3">
+  <div class="row">
+		<% @flats.each do |flat| %>
+    	<div class="col-12 col-md-4 col-lg-3 mt-3">
+					<div class="card">
+						<%= cl_image_tag flat.photos.first.key, class: "w-100 mb-1" %>
+						<div class="card-body bg-light">
+							<p class="color-text">Entire apartment in <%= flat.location %></span></p>
+							<h5 class="card-title"> <strong><%= flat.name %></h5></strong>
+							<p class="card-text"> <%= flat.location %> <br>
+							<i class="fas fa-dollar-sign"></i><%= flat.price %>
+							<i class="fas fa-bath"></i>  <%= flat.bathroom%>
+							<i class="fas fa-bed"></i> <%= flat.bedroom%>
+							<% if flat.pool  %>
+							<i class="fas fa-swimmer"></i>
+							<% end  %>
+							<% if flat.wifi  %>
+							<i class="fas fa-wifi"></i>
+							<% end  %>
+							<p><strong>Rating:</strong> <% flat.rating.times do  %>
+							<i class="fas fa-star"></i>
+							<% end %></p>
+						</div>
+        		<div class="d-flex justify-content-between m-3">
+							<% if policy(flat).show? %>
+    						<%= link_to "More Info", flat_path(flat)%>
+  						<% end %>
+							<% if policy(flat).edit? %>
+    						<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
+  						<% end %>
+							<% if policy(flat).destroy? %>
+    						<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
+  						<% end %>
+        		</div>
+					</div>
+  		</div>
+		<% end %>
   </div>
-</section>
+</div>
+
