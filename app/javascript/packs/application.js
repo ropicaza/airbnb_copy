@@ -24,14 +24,18 @@ require("channels")
 
 
 // External imports
-import "social-share-button";
 import "bootstrap";
 import "../plugins/flatpickr";
+//import "social-share-button";
+
 
 // Internal imports, e.g:
+import { initMapbox } from '../plugins/init_mapbox';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
 });
+
