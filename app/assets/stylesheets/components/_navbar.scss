@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $magnolia;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +13,5 @@
 
 .navbar .fa-airbnb {
   font-size: 40px;
+  color: $violet;
 }
