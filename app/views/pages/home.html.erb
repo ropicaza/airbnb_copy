@@ -31,40 +31,24 @@
 
 <h2 class= "text-center my-5">Live anywhere</h2>
 
-<div class="container mt-3 mb-3">
+<div class="container my-3">
   <div class="row">
-    <div class="col-12 col-md-6 d-flex justify-content-center my-5 rounded-lg">
-      <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Entire Homes.</p>
+    <% @flats.each do |flat| %>
+      <div class="col-12 col-md-4 col-lg-3 mt-3">
+        <div class="card h-100">
+          <%= cl_image_tag flat.photos.first.key %>
+          <div class="card-body">
+            <p>Entire apartment in <%= flat.location %></p>
+            <h4><%= flat.name %></h4>
+            <p>2 guests - Studio - 1 bed</p>
+              <div class="lower-price">
+                <i class="fas fa-tag"></i> New lower price
+              </div>
+                <p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-md-6 d-flex justify-content-center my-5 rounded-lg">
-      <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1593053272490-e0ed6d6a42c5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Unique stays.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 d-flex justify-content-center my-5 rounded-lg">
-      <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1522071500372-f0fd8c452178?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Sky-season stays.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 d-flex justify-content-center my-5 rounded-lg">
-      <div class="card">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Card image cap">
-        <div class="card-body">
-          <p class="card-text">Cabins and cottages</p>
-        </div>
-      </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
