@@ -1,11 +1,12 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+  before_action :set_flat, only: [:show, :edit, :update, :destroy]
   def index
-    @flats = Flat.all
+    @flats = policy_scope(Flat).order(created_at: :desc)
   end
 
   def show
     @flats = Flat.all
-    @flat = Flat.find(params[:id])
     @booking = Booking.new
     @flat_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id ).sample
   end
@@ -13,7 +14,10 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flats_params)
     @flat.owner = current_user
+    authorize @flat
     if @flat.save
+      @flat.rating = rand(3.0..5.0).round(2)
+      @flat.save
       redirect_to @flat
     else
       render :new
@@ -22,19 +26,20 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def edit
   end
 
   def update
-    @flat.update(flat_params)
+    @flat.update(flats_params)
 		redirect_to flat_path(@flat)
   end
 
   def destroy
     @flat.destroy
-		redirect_to flats_path
+		redirect_to bookings_path
   end
 
 
@@ -42,5 +47,10 @@ class FlatsController < ApplicationController
 
   def flats_params
     params.require(:flat).permit(:name, :description, :price, :location, :wifi, :pool, :bathroom, :bedroom, photos: [] )
+  end
+
+  def set_flat
+    @flat = Flat.find(params[:id])
+    authorize @flat
   end
 end
