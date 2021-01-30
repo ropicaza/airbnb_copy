@@ -1,17 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 
-.btn {
-	color: black;
-	border-color: #B0B0B0;
-}
-
-.btn:hover {
-	background-color: transparent;
-	color: black;
-	border-color: black;
-}
-  
 #map {
 	height: 100vh;
 	position: sticky;
