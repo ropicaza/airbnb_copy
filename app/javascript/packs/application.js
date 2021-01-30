@@ -26,8 +26,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import "../plugins/flatpickr";
-//import "social-share-button";
-
+// import "social-share-button";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';

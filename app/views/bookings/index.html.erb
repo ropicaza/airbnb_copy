@@ -35,8 +35,12 @@
     						<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
   						<% end %>
 							<% if policy(flat).destroy? %>
-    						<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
-  						<% end %>
+								<% if flat.bookings.present? %>
+									<p class="text-danger">Remove (delete reservations)</p>
+								<% else %>
+									<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
+								<% end %>
+							<% end %>
         		</div>
 					</div>
   		</div>
