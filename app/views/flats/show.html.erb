@@ -35,7 +35,11 @@
         <%= simple_form_for [@flat, @booking] do |f| %>
         <%=f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}  %>
         <%=f.input :end_date,  as: :string, required: false, input_html: {class: "datepicker"}  %>
-        <%=f.submit "Book", class: "btn btn-success mt-2" %>
+        <% if @flat.owner == current_user %>
+          <%=f.submit "Book", class: "btn btn-success mt-2", disabled: true %>
+        <% else %>
+          <%=f.submit "Book", class: "btn btn-success mt-2" %>
+        <% end %>
         <% end %>
 
       </div>
