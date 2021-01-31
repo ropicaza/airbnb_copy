@@ -26,7 +26,8 @@
       <div class="flat-show-card">
         <h3>A bit more about this flat...</h3>
         <p><%= @flat.description %></p>
-        <div class="map" style="background-image: url('https://www.google.com/maps/d/thumbnail?mid=1CucW7pQdzUo3pIqXQYaWF8trh0s')"></div>
+        <div id="map" style="width: 100%; height: 90vh;" data-markers="<%= @markers.to_json %>"	data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+		</div>	
       </div>
     </div>
     <div class="col-4">
