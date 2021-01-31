@@ -33,8 +33,8 @@
       <div class="flat-show-card">
         <h5>Book this place!</h5>
         <%= simple_form_for [@flat, @booking] do |f| %>
-        <%=f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}  %>
-        <%=f.input :end_date,  as: :string, required: false, input_html: {class: "datepicker"}  %>
+        <%=f.input :start_date, as: :string, required: false, input_html: {id: "range_start"}  %>
+        <%=f.input :end_date,  as: :string, required: false, input_html: {id: "range_end"}  %>
         <% if @flat.owner == current_user %>
           <%=f.submit "Book", class: "btn btn-success mt-2", disabled: true %>
         <% else %>
