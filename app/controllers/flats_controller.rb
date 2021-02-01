@@ -18,6 +18,14 @@ class FlatsController < ApplicationController
 
   def show
     @flats = Flat.all
+
+    @flats_geo = @flat.geocode
+    @markers = @flats_geo.map do |flat|
+      {
+        lat: @flats_geo[0],
+        lng: @flats_geo[1],
+      }
+    end
     @booking = Booking.new
     @flat_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id ).sample
   end
