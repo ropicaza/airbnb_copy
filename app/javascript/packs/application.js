@@ -40,3 +40,11 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
 });
 
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-confirmation', {
+  title: "Congratulations!",
+  text: "You have booked this Flat, please wait for approval",
+  icon: "success";
+  timer: 5000
+});
