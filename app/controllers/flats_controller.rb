@@ -4,7 +4,7 @@ class FlatsController < ApplicationController
 
 
   def index
-    @flats = policy_scope(Flat).order(created_at: :desc)
+    @flats = policy_scope(Flat).order(created_at: :desc).page params[:page]
 
     @flats_geo = @flats.geocoded
     @markers = @flats_geo.geocoded.map do |flat|
