@@ -8,8 +8,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      flash["alert"] = "Congratulations! Your reservation status is 'waiting for approval'"
-      redirect_to root_path
+      redirect_to flat_path(@flat)
     else
       @flats = Flat.all
       render "flats/show"

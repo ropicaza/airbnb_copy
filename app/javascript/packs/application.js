@@ -31,6 +31,8 @@ import "../plugins/flatpickr";
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,3 +42,23 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
 });
 
+initSweetalert('#sweet-alert-confirmation', {
+  title: "Congratulations!",
+  text: "You have booked this Flat, please wait for approval",
+  icon: "success",
+  timer: 10000
+});
+
+initSweetalert('#sweet-alert-accepted', {
+  title: "Congratulations!",
+  text: "You have accepted this HOST",
+  icon: "success",
+  timer: 10000
+});
+
+initSweetalert('#sweet-alert-rejected', {
+  title: "Oh No!",
+  text: "You have rejected this HOST",
+  icon: "error",
+  timer: 10000
+});
