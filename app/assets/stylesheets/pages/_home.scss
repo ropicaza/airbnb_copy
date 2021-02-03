@@ -32,3 +32,22 @@ h3 {
 .fixed-width {
   width: 250px;
 }
+
+@media screen and (min-width: 768px) {
+  #booking-pill {
+    background-color: white;
+  }
+
+  #srchbtn {
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  label {
+    color: white;
+  }
+
+}
+
+

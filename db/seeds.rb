@@ -36,7 +36,7 @@ number_of_users.times do |i|
   if i > number_of_users / 2
     owners << user
     rand(1..3).times do
-      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample, wifi: arr_true.sample, pool: arr_true.sample, bathroom: rand(1..5,), bedroom: rand(1..6), rating: rand(1.0..5.0), address: ADDRESS.sample)
+      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample, wifi: arr_true.sample, pool: arr_true.sample, bathroom: rand(1..5,), bedroom: rand(1..6), rating: rand(1.0..5.0), address: ADDRESS.sample, guests: rand(1..5))
       IMAGES[i].each do |img|
       img_file = URI.open(img)
       flat.photos.attach(io: img_file, filename: 'flat_img.png', content_type: 'image/png')

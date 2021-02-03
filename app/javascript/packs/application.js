@@ -25,12 +25,12 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr";
 // import "social-share-button";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initflatpickr } from '../plugins/flatpickr';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,5 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initAutocomplete();
+  initflatpickr();
 });
 
