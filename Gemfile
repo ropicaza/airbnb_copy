@@ -35,6 +35,8 @@ gem 'devise', '~> 4.2'
 gem 'cloudinary', '~> 1.16.0'
 gem 'social-share-button'
 gem 'geocoder'
+gem 'kaminari', '~> 0.17.0'
+gem 'bootstrap4-kaminari-views'
 
 group :development, :test do
   gem 'pry-byebug'
