@@ -125,7 +125,7 @@
 							</div>
 							<div class="d-flex justify-content-between m-3">
 								<% if policy(pending_booking).update? %>
-									<%= link_to "Accept", booking_path(pending_booking, booking: {status: "accepted"}), method: :patch, data: { confirm: "Are you sure you want to accept this reservation?" }, class:"text-success" %>
+									<%= link_to "Accept", booking_path(pending_booking, booking: {status: "rejected"}), id: "sweet-alert-accepted" %>
 									<%= link_to "Reject", booking_path(pending_booking, booking: {status: "rejected"}), method: :patch, data: { confirm: "Are you sure you want to delete this reservation?" }, class:"text-danger" %>
 								<% end %>
 							</div>
