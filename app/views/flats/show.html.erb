@@ -39,7 +39,7 @@
         <% if @flat.owner == current_user %>
           <%=f.submit "Book", class: "btn btn-success mt-2", disabled: true %>
         <% else %>
-          <%=f.submit "Book", class: "btn btn-success mt-2" %>
+          <%=f.submit "Book", class: "btn btn-success mt-2", id: "sweet-alert-confirmation" %>
         <% end %>
         <% end %>
 
