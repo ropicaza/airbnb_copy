@@ -13,4 +13,5 @@ class Flat < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1 }
   validates :price, presence: true, :numericality => { :greater_than => 0 }
   validates :location, presence: true
+  validates :guests, presence: true, length: { minimum: 1 }
 end

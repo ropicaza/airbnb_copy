@@ -6,6 +6,7 @@ class FlatsController < ApplicationController
   def index
     @flats = policy_scope(Flat).order(created_at: :desc).page params[:page]
 
+
     @flats_geo = @flats.geocoded
     @markers = @flats_geo.geocoded.map do |flat|
       {
@@ -65,7 +66,7 @@ class FlatsController < ApplicationController
   private
 
   def flats_params
-    params.require(:flat).permit(:name, :description, :price, :location, :wifi, :pool, :bathroom, :bedroom, :address, photos: [])
+    params.require(:flat).permit(:name, :description, :price, :location, :wifi, :pool, :bathroom, :bedroom, :address, :guests, photos: [])
   end
 
   def set_flat

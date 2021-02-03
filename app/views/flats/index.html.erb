@@ -1,15 +1,18 @@
 <div class="index-container">
 	<div class="skeleton">
 		<div class="intro">
-			<p>300+ stays · Feb 10 - 12</p>
-			<h1>Stays in Palermo</h1>
+			<% if params["/"][:location].empty? %>
+				<h1>Excelent places to stay!</h1>
+			<% else %>
+				<h1>Places in <%= params["/"][:location].match(/^(.+?),/)%> enjoy your visit!</h1>
+			<% end %>
 				<div class="d-flex justify-content-left">
 					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Type of place</button>
 					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Price</button>
 					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">Instant Book</button>
-					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">More filters</button>	
+					<button type="button" class="btn btn-outline-secondary rounded-pill mr-2">More filters</button>
 				</div>
-			<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>	
+			<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>
 	</div>
 
 	<div class="cards">
@@ -35,7 +38,5 @@
 		<div id="map" style="width: 40%; height: 100vh;"
 			data-markers="<%= @markers.to_json %>"
 			data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-		</div>		
-
-
-	</div>
+		</div>
+</div>
