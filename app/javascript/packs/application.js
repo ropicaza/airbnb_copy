@@ -46,5 +46,19 @@ initSweetalert('#sweet-alert-confirmation', {
   title: "Congratulations!",
   text: "You have booked this Flat, please wait for approval",
   icon: "success",
-  timer: 7000
+  timer: 10000
+});
+
+initSweetalert('#sweet-alert-accepted', {
+  title: "Congratulations!",
+  text: "You have accepted this HOST",
+  icon: "success",
+  timer: 10000
+});
+
+initSweetalert('#sweet-alert-rejected', {
+  title: "Oh No!",
+  text: "You have rejected this HOST",
+  icon: "error",
+  timer: 10000
 });
