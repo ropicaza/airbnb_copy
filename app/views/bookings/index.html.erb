@@ -88,8 +88,8 @@
 								<% if booking.flat.wifi  %>
 									<i class="fas fa-wifi"></i>
 								<% end  %>
-								<p class="card-text"> Start date:  <%= booking.start_date.strftime("%m-%y-%d") %>
-								<p class="card-text"> End date: <%= booking.end_date.strftime("%m-%y-%d")%>
+								<p class="card-text"> Start date:  <%= booking.start_date.strftime("%m-%d-%y") %>
+								<p class="card-text"> End date: <%= booking.end_date.strftime("%m-%d-%y")%>
 								<p class="card-text"> Approval Status: <%= booking.status%>
 								<p><strong>Rating:</strong> <% booking.flat.rating.times do  %>
 								<i class="fas fa-star"></i>
@@ -106,7 +106,13 @@
 										<%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your reservation?" }, class:"text-danger justify-content-end" %>
 									<% end %>
 								<% end %>
+								<% if booking.reviews.where(user: current_user).blank? %>
+									<% if booking.end_date < Date.today %>
+										<%= link_to 'Review this flat!', new_booking_review_path(booking) %>
+									<% end %>	
+								<% end %>
 							</div>
+							
 						</div>
 					</div>
 					<% end %>
@@ -136,8 +142,8 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= pending_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= pending_booking.flat.name %></h5></strong>
-								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%y-%d") %>
-								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%y-%d")%>
+								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%d-%y") %>
+								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%d-%y")%>
 								<p class="card-text text-info"> Status: <%= pending_booking.status%></p>
 							</div>
 							<div class="d-flex justify-content-between m-3">
@@ -182,9 +188,14 @@
 									<div class="card-body bg-light">
 										<p class="color-text">Entire apartment in <%= accepted_booking.flat.location %></span></p>
 										<h5 class="card-title"> <strong><%= accepted_booking.flat.name %></h5></strong>
-										<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%y-%d") %>
-										<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%y-%d")%>
+										<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%d-%y") %>
+										<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%d-%y")%>
 										<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
+										<% if accepted_booking.reviews.where(user: current_user).blank? %>
+											<% if accepted_booking.end_date < Date.today %>
+												<%= link_to 'Review your renter!', new_booking_review_path(accepted_booking) %>
+											<% end %>	
+										<% end %>										
 									</div>
 								</div>
 							</div>
@@ -219,8 +230,8 @@
 												<div class="card-body bg-light">
 													<p class="color-text">Entire apartment in <%= rejected_booking.flat.location %></span></p>
 													<h5 class="card-title"> <strong><%= rejected_booking.flat.name %></h5></strong>
-													<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%y-%d") %>
-													<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%y-%d")%>
+													<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%d-%y") %>
+													<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%d-%y")%>
 													<p class="card-text text-danger">Status: <%= rejected_booking.status%></p>
 												</div>
 											</div>
