@@ -8,7 +8,7 @@ User.destroy_all
 
 puts "Creating database.."
 
-FLAT_NAME = ["Luminoso 3 ambientes", "2 ambientes grande", "Cozy design apartment", "80 mts ideales", "touristic Recoleta", "Diseño y tranquilidad", "Santuario Pacifico", "Penthouse with a view", "Faena Apart", "Design-Savvy Apart", "Dúplex equipado", "BOUTIQUE LOFT", "SOLER ART STUDIOS", "Unforgettable Loft", "Espacio Guatemala"]
+FLAT_NAME = ["Luminoso 3 ambientes", "2 ambientes grande", "Cozy design apartment", "80 mts ideales", "touristic Recoleta", "Diseño y tranquilidad", "Santuario Pacifico", "Penthouse with a view", "Faena Apart", "Design-Savvy Apart", "Dúplex equipado", "Boutique loft", "Soler Art Studio", "Unforgettable Loft", "Espacio Guatemala"]
 
 FLAT_LOCATION = ["Palermo", "Microcentro", "Puerto Madero", "Almagro", "Belgrano", "Nuñez", "Saavedra", "Villa Urquiza", "Balvanera", "Caballito", "San Telmo", "Recoleta", "Retiro", "Montserrat", "Barrio Norte", "Flores", "Paternal", "Villa Crespo", "San Nicolas", "Colegiales"]
 
