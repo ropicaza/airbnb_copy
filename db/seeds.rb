@@ -43,7 +43,7 @@ number_of_users.times do |i|
       flat.save
       end
       rand(2..5).times do
-        start_date = Date.today - 300.days
+        start_date = Date.today + rand(3..15).days
         Booking.create!(renter: renters.sample, flat: Flat.last, start_date: start_date, end_date: start_date + rand(3..15).days, status: "pending"  )
       end
     end
