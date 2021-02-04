@@ -25,7 +25,16 @@
 					<div class="card-product-infos">
 						<p>Entire apartment in <%= flat.location %></p>
 						<h4><%= flat.name %></h4>
-						<p>2 guests - Studio - 1 bed</p>
+						<i class="fas fa-dollar-sign"></i><%= flat.price %>
+            <i class="fas fa-users"></i><%= flat.guests %>
+            <i class="fas fa-bath"></i>  <%= flat.bathroom%>
+						<i class="fas fa-bed"></i> <%= flat.bedroom%>
+            <% if flat.pool  %>
+							<i class="fas fa-swimmer"></i>
+						<% end  %>
+						<% if flat.wifi  %>
+							<i class="fas fa-wifi"></i>
+						<% end  %>
 							<div class="lower-price">
 								<i class="fas fa-tag"></i> New lower price
 							</div>
