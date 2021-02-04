@@ -16,6 +16,7 @@
 								<h5 class="card-title"> <strong><%= flat.name %></h5></strong>
 								<p class="card-text"> <%= flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= flat.price %>
+								<i class="fas fa-users"></i> <%= flat.guests %>
 								<i class="fas fa-bath"></i>  <%= flat.bathroom%>
 								<i class="fas fa-bed"></i> <%= flat.bedroom%>
 								<% if flat.pool  %>
@@ -68,6 +69,7 @@
 								<h5 class="card-title"> <strong><%= booking.flat.name %></h5></strong>
 								<p class="card-text"> <%= booking.flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= booking.flat.price %>
+								<i class="fas fa-users"></i> <%= booking.flat.guests %>
 								<i class="fas fa-bath"></i>  <%= booking.flat.bathroom%>
 								<i class="fas fa-bed"></i> <%= booking.flat.bedroom%>
 								<% if booking.flat.pool  %>
