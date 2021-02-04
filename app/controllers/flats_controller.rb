@@ -4,7 +4,6 @@ class FlatsController < ApplicationController
 
 
   def index
-    raise
     if params["/"][:location].empty?
       @flats = policy_scope(Flat).order(created_at: :desc).page params[:page]
     else
