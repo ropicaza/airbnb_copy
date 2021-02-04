@@ -1,73 +1,83 @@
-<section id="boat_services" class="my-5">
-  <div class="container">
-    <div class="title mb-1">
-      <h2>Your flats</h2>
+<div class="container p-5">
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Your Flats
+        </button>
+      </h2>
     </div>
 
-<div class="container mt-3">
-  <div class="row">
-	<% if @flats.count > 0 %>
-			<% @flats.each do |flat| %>
-				<div class="col-12 col-md-4 col-lg-3 mt-3">
-						<div class="card h-100">
-							<%= cl_image_tag flat.photos.first.key, class: "w-100 mb-1" %>
-							<div class="card-body bg-light">
-								<p class="color-text">Entire apartment in <%= flat.location %></span></p>
-								<h5 class="card-title"> <strong><%= flat.name %></h5></strong>
-								<p class="card-text"> <%= flat.location %> <br>
-								<i class="fas fa-dollar-sign"></i><%= flat.price %>
-								<i class="fas fa-users"></i> <%= flat.guests %>
-								<i class="fas fa-bath"></i>  <%= flat.bathroom%>
-								<i class="fas fa-bed"></i> <%= flat.bedroom%>
-								<% if flat.pool  %>
-									<i class="fas fa-swimmer"></i>
-								<% end  %>
-								<% if flat.wifi  %>
-									<i class="fas fa-wifi"></i>
-								<% end  %>
-								<p><strong>Rating:</strong> <% flat.rating.times do  %>
-									<i class="fas fa-star"></i>
-								<% end %></p>
-							</div>
-							<div class="d-flex justify-content-between m-3">
-								<% if policy(flat).show? %>
-									<%= link_to "More Info", flat_path(flat)%>
-								<% end %>
-								<% if policy(flat).edit? %>
-									<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
-								<% end %>
-								<% if policy(flat).destroy? %>
-									<% if flat.bookings.present? %>
-										<p class="text-danger">Remove (delete reservations)</p>
-									<% else %>
-										<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+				<div class="row">
+        	<% if @flats.count > 0 %>
+					<% @flats.each do |flat| %>
+						<div class="col-12 col-md-4 col-lg-3 mt-3">
+							<div class="card h-100">
+								<%= cl_image_tag flat.photos.first.key, class: "w-100 mb-1" %>
+								<div class="card-body bg-light">
+									<p class="color-text">Entire apartment in <%= flat.location %></span></p>
+									<h5 class="card-title"> <strong><%= flat.name %></h5></strong>
+										<i class="fas fa-dollar-sign"></i><%= flat.price %>
+										<i class="fas fa-users"></i> <%= flat.guests %>
+										<i class="fas fa-bath"></i>  <%= flat.bathroom%>
+										<i class="fas fa-bed"></i> <%= flat.bedroom%>
+									<% if flat.pool  %>
+										<i class="fas fa-swimmer"></i>
+									<% end  %>
+									<% if flat.wifi  %>
+										<i class="fas fa-wifi"></i>
+									<% end  %>
+										<p><strong>Rating:</strong> <% flat.rating.times do  %>
+										<i class="fas fa-star"></i>
+									<% end %></p>
+								</div>
+								<div class="d-flex justify-content-between m-3">
+									<% if policy(flat).show? %>
+										<%= link_to "More Info", flat_path(flat)%>
 									<% end %>
-								<% end %>
+									<% if policy(flat).edit? %>
+										<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
+									<% end %>
+									<% if policy(flat).destroy? %>
+										<% if flat.bookings.present? %>
+											<p class="text-danger">Remove (delete reservations)</p>
+										<% else %>
+											<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
+										<% end %>
+									<% end %>
+								</div>
 							</div>
 						</div>
+					<% end %>
+					<% else %>
+					<p>You don't have any flats at the moment.</p>
+					<% end %>
 				</div>
-			<% end %>
-		<% else %>
-			<p>You don't have any flats at the moment.</p>
-		<% end %>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="title mb-1">
-	<h2>Your Bookings</h2>
-</div>
-
-		<div class="container mt-3">
-  <div class="row">
-		<% if @bookings_renter.count > 0 %>
-			<% @bookings_renter.each do |booking| %>
-				<div class="col-12 col-md-4 col-lg-3 mt-3">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Your Booking Reservations
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+				<div class="row">
+					<% if @bookings_renter.count > 0 %>
+					<% @bookings_renter.each do |booking| %>
+					<div class="col-12 col-md-4 col-lg-3 mt-3">
 						<div class="card h-100">
 							<%= cl_image_tag booking.flat.photos.first.key, class: "w-100 mb-1" %>
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= booking.flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= booking.flat.price %>
 								<i class="fas fa-users"></i> <%= booking.flat.guests %>
 								<i class="fas fa-bath"></i>  <%= booking.flat.bathroom%>
@@ -90,37 +100,42 @@
 									<%= link_to "More Info", flat_path(booking.flat.id)%>
 								<% end %>
 								<% if policy(booking).destroy? %>
-								<% if booking.status == "Approved" %>
-									<p class="text-success">Reservation approved!</p>
-								<% else %>
-									<%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your reservation?" }, class:"text-danger justify-content-end" %>
+									<% if booking.status == "Approved" %>
+										<p class="text-success">Reservation approved!</p>
+									<% else %>
+										<%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your reservation?" }, class:"text-danger justify-content-end" %>
+									<% end %>
 								<% end %>
-							<% end %>
 							</div>
 						</div>
+					</div>
+					<% end %>
+					<% else %>
+					<p>You have 0 bookings at the moment.</p>
+					<% end %>
 				</div>
-			<% end %>
-		<% else %>
-			<p>You have 0 bookings at the moment.</p>
-		<% end %>
+ 			</div>
+		</div>
   </div>
-</div>
-
-<div class="title mb-1">
-  <h2>Your Flats Bookings Requests</h2>
-</div>
-
-		<div class="container mt-3">
-  <div class="row">
-		<% if @bookings_pending.count > 0 %>
-			<% @bookings_pending.each do |pending_booking| %>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Your Flats Bookings Requests
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+			  <div class="row">
+					<% if @bookings_pending.count > 0 %>
+					<% @bookings_pending.each do |pending_booking| %>
 				<div class="col-12 col-md-4 col-lg-3 mt-3">
 						<div class="card h-100">
 							<%= cl_image_tag pending_booking.flat.photos.first.key, class: "w-100 mb-1" %>
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= pending_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= pending_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= pending_booking.flat.location %> <br>
 								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%y-%d") %>
 								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-info"> Status: <%= pending_booking.status%></p>
@@ -139,66 +154,89 @@
 							</div>
 						</div>
 				</div>
-			<% end %>
-		<% else %>
-			<p>Your flats weren't booked yet!.</p>
-		<% end %>
+				<% end %>
+				<% else %>
+				<p>Your flats weren't booked yet!.</p>
+				<% end %>
+  		</div>
+		</div>
   </div>
-</div>
-
-
-<div class="title mb-1">
-  <h2>Your Flats Bookings Accepted</h2>
-</div>
-
-<div class="container mt-3">
-  <div class="row">
-		<% if @accepted_bookings.count > 0 %>
-			<% @accepted_bookings.each do |accepted_booking| %>
-				<div class="col-12 col-md-4 col-lg-3 mt-3">
-						<div class="card h-100">
-							<%= cl_image_tag accepted_booking.flat.photos.first.key, class: "w-100 mb-1" %>
-							<div class="card-body bg-light">
-								<p class="color-text">Entire apartment in <%= accepted_booking.flat.location %></span></p>
-								<h5 class="card-title"> <strong><%= accepted_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= accepted_booking.flat.location %> <br>
-								<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%y-%d") %>
-								<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%y-%d")%>
-								<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
+	<div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Your Accepted Bookings
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+			  <div class="row">
+					<div class="container mt-3">
+  					<div class="row">
+							<% if @accepted_bookings.count > 0 %>
+							<% @accepted_bookings.each do |accepted_booking| %>
+							<div class="col-12 col-md-4 col-lg-3 mt-3">
+								<div class="card h-100">
+									<%= cl_image_tag accepted_booking.flat.photos.first.key, class: "w-100 mb-1" %>
+									<div class="card-body bg-light">
+										<p class="color-text">Entire apartment in <%= accepted_booking.flat.location %></span></p>
+										<h5 class="card-title"> <strong><%= accepted_booking.flat.name %></h5></strong>
+										<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%y-%d") %>
+										<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%y-%d")%>
+										<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
+									</div>
+								</div>
 							</div>
+							<% end %>
+							<% else %>
+							<p>You haven't accepted any booking yet!</p>
+							<% end %>
+  					</div>
+					</div>
+  			</div>
+			</div>
+  	</div>
+	</div>
+	<div class="card">
+    <div class="card-header" id="headingFive">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Your Rejected Bookings
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+      <div class="card-body">
+			  <div class="row">
+					<div class="container mt-3">
+						<div class="row">
+							<% if @rejected_bookings.count > 0 %>
+								<% @rejected_bookings.each do |rejected_booking| %>
+									<div class="col-12 col-md-4 col-lg-3 mt-3">
+											<div class="card h-100">
+												<%= cl_image_tag rejected_booking.flat.photos.first.key, class: "w-100 mb-1" %>
+												<div class="card-body bg-light">
+													<p class="color-text">Entire apartment in <%= rejected_booking.flat.location %></span></p>
+													<h5 class="card-title"> <strong><%= rejected_booking.flat.name %></h5></strong>
+													<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%y-%d") %>
+													<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%y-%d")%>
+													<p class="card-text text-danger">Status: <%= rejected_booking.status%></p>
+												</div>
+											</div>
+									</div>
+								<% end %>
+							<% else %>
+								<p>You don't have any rejected booking yet!</p>
+							<% end %>
 						</div>
-				</div>
-			<% end %>
-		<% else %>
-			<p>You haven't accepted any booking yet!</p>
-		<% end %>
-  </div>
+					</div>
+  			</div>
+			</div>
+  	</div>
+	</div>
+</div>
+</div>
 </div>
 
-<div class="title mb-1">
-  <h2>Your Rejected Flats Bookings</h2>
-</div>
-
-<div class="container mt-3">
-  <div class="row">
-		<% if @rejected_bookings.count > 0 %>
-			<% @rejected_bookings.each do |rejected_booking| %>
-				<div class="col-12 col-md-4 col-lg-3 mt-3">
-						<div class="card h-100">
-							<%= cl_image_tag rejected_booking.flat.photos.first.key, class: "w-100 mb-1" %>
-							<div class="card-body bg-light">
-								<p class="color-text">Entire apartment in <%= rejected_booking.flat.location %></span></p>
-								<h5 class="card-title"> <strong><%= rejected_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= rejected_booking.flat.location %> <br>
-								<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%y-%d") %>
-								<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%y-%d")%>
-								<p class="card-text text-danger">Status: <%= rejected_booking.status%></p>
-							</div>
-						</div>
-				</div>
-			<% end %>
-		<% else %>
-			<p>You don't have any rejected booking yet!</p>
-		<% end %>
-  </div>
 </div>
