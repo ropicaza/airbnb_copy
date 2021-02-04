@@ -16,6 +16,7 @@
 								<h5 class="card-title"> <strong><%= flat.name %></h5></strong>
 								<p class="card-text"> <%= flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= flat.price %>
+								<i class="fas fa-users"></i> <%= flat.guests %>
 								<i class="fas fa-bath"></i>  <%= flat.bathroom%>
 								<i class="fas fa-bed"></i> <%= flat.bedroom%>
 								<% if flat.pool  %>
@@ -66,8 +67,8 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= booking.flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= booking.flat.price %>
+								<i class="fas fa-users"></i> <%= booking.flat.guests %>
 								<i class="fas fa-bath"></i>  <%= booking.flat.bathroom%>
 								<i class="fas fa-bed"></i> <%= booking.flat.bedroom%>
 								<% if booking.flat.pool  %>
@@ -124,15 +125,20 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= pending_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= pending_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= pending_booking.flat.location %> <br>
-								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%d-%y") %>
-								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%d-%y")%>
+								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%y-%d") %>
+								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-info"> Status: <%= pending_booking.status%></p>
 							</div>
 							<div class="d-flex justify-content-between m-3">
 								<% if policy(pending_booking).update? %>
-									<%= link_to "Accept", booking_path(pending_booking, booking: {status: "accepted"}), method: :patch, data: { confirm: "Are you sure you want to accept this reservation?" }, class:"text-success" %>
-									<%= link_to "Reject", booking_path(pending_booking, booking: {status: "rejected"}), method: :patch, data: { confirm: "Are you sure you want to delete this reservation?" }, class:"text-danger" %>
+									<%= simple_form_for pending_booking do |f| %>
+										<%= f.hidden_field :status, value: "accepted" %>
+										<%=f.submit "Accept", id: "sweet-alert-accepted", class: "text-success" %>
+									<% end %>
+									<%= simple_form_for pending_booking do |f| %>
+										<%= f.hidden_field :status, value: "rejected" %>
+										<%=f.submit "Reject", id: "sweet-alert-rejected", class: "text-danger" %>
+									<% end %>
 								<% end %>
 							</div>
 						</div>
@@ -159,9 +165,8 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= accepted_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= accepted_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= accepted_booking.flat.location %> <br>
-								<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%d-%y") %>
-								<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%d-%y")%>
+								<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%y-%d") %>
+								<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
 								<% if accepted_booking.reviews.where(user: current_user).blank? %>
 									<% if accepted_booking.end_date < Date.today %>
@@ -192,9 +197,8 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= rejected_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= rejected_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= rejected_booking.flat.location %> <br>
-								<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%d-%y") %>
-								<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%d-%y")%>
+								<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%y-%d") %>
+								<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-danger">Status: <%= rejected_booking.status%></p>
 							</div>
 						</div>
