@@ -94,10 +94,13 @@
 										<%= link_to "Remove", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to cancel your reservation?" }, class:"text-danger justify-content-end" %>
 									<% end %>
 								<% end %>
-								<% if booking.end_date < Date.today %>
-									<%= link_to 'Leave a review', new_booking_review_path(booking) %>
+								<% if booking.review.first.nil? %>
+									<% if booking.end_date < Date.today %>
+										<%= link_to 'Leave a review', new_booking_review_path(booking) %>
+									<% end %>	
 								<% end %>
 							</div>
+							
 						</div>
 				</div>
 			<% end %>
@@ -160,6 +163,11 @@
 								<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%d-%y") %>
 								<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%d-%y")%>
 								<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
+								<% if accepted_booking.review.first.nil? %>
+									<% if accepted_booking.end_date < Date.today %>
+										<%= link_to 'Leave a review', new_booking_review_path(accepted_booking) %>
+									<% end %>	
+								<% end %>
 							</div>
 						</div>
 				</div>
