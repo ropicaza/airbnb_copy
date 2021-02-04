@@ -15,28 +15,32 @@
 			<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="#" class="" style="text-decoration: underline; color: black"> Learn more</a></p>
 	</div>
 
-	<div class="cards">
-		<% @flats.each do |flat| %>
-			<div class="card-product h-100">
-				<%= cl_image_tag flat.photos.sample.key %>
-				<div class="card-product-infos">
-					<p>Entire apartment in <%= flat.location %></p>
-					<h4><%= flat.name %></h4>
-					<p>2 guests - Studio - 1 bed</p>
-						<div class="lower-price">
-							<i class="fas fa-tag"></i> New lower price
-						</div>
-						<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
-						<%= link_to "More Info", flat_path(flat)%>
+<div class="cards">
+		<% if @flats.length == 0 %>
+			<h1>Sorry, there are no flats near the area you are looking for!</h1>
+		<% else %>
+			<% @flats.each do |flat| %>
+				<div class="card-product h-100">
+					<%= cl_image_tag flat.photos.sample.key %>
+					<div class="card-product-infos">
+						<p>Entire apartment in <%= flat.location %></p>
+						<h4><%= flat.name %></h4>
+						<p>2 guests - Studio - 1 bed</p>
+							<div class="lower-price">
+								<i class="fas fa-tag"></i> New lower price
+							</div>
+							<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+							<%= link_to "More Info", flat_path(flat)%>
+					</div>
 				</div>
+			<% end %>
+			</div>
+				<%= paginate @flats, theme: 'twitter-bootstrap-4' %>
+			</div>
+
+			<div id="map" style="width: 40%; height: 100vh;"
+				data-markers="<%= @markers.to_json %>"
+				data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 			</div>
 		<% end %>
-	</div>
-		<%= paginate @flats, theme: 'twitter-bootstrap-4' %>
-	</div>
-
-		<div id="map" style="width: 40%; height: 100vh;"
-			data-markers="<%= @markers.to_json %>"
-			data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-		</div>
 </div>
