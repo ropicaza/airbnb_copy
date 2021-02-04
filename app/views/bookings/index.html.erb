@@ -67,7 +67,6 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= booking.flat.location %> <br>
 								<i class="fas fa-dollar-sign"></i><%= booking.flat.price %>
 								<i class="fas fa-users"></i> <%= booking.flat.guests %>
 								<i class="fas fa-bath"></i>  <%= booking.flat.bathroom%>
@@ -120,7 +119,6 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= pending_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= pending_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= pending_booking.flat.location %> <br>
 								<p class="card-text"> Start date:  <%= pending_booking.start_date.strftime("%m-%y-%d") %>
 								<p class="card-text"> End date: <%= pending_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-info"> Status: <%= pending_booking.status%></p>
@@ -161,7 +159,6 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= accepted_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= accepted_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= accepted_booking.flat.location %> <br>
 								<p class="card-text"> Start date:  <%= accepted_booking.start_date.strftime("%m-%y-%d") %>
 								<p class="card-text"> End date: <%= accepted_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-success"> Status: <%= accepted_booking.status%></p>
@@ -189,7 +186,6 @@
 							<div class="card-body bg-light">
 								<p class="color-text">Entire apartment in <%= rejected_booking.flat.location %></span></p>
 								<h5 class="card-title"> <strong><%= rejected_booking.flat.name %></h5></strong>
-								<p class="card-text"> <%= rejected_booking.flat.location %> <br>
 								<p class="card-text"> Start date:  <%= rejected_booking.start_date.strftime("%m-%y-%d") %>
 								<p class="card-text"> End date: <%= rejected_booking.end_date.strftime("%m-%y-%d")%>
 								<p class="card-text text-danger">Status: <%= rejected_booking.status%></p>

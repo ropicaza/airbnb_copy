@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://revistaroomin.com/wp-content/uploads/2019/11/experiencia-en-buenos-aires-argentina-por-evelyn-a499ed5e8f8c07ede302d13e4eedf932.jpg');">
   <div class="container">
-    <h1>Go Near</h1>
-    <h3>Book your next stay.</h3>
+    <h1>Find a place to stay</h1>
+    <h3>Explore nearby places.</h3>
       <%= simple_form_for root_path, url: flats_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
         <div class="row rounded-pill align-items-center justify-content-around p-2" id="booking-pill">
           <div class="col-12 col-sm-12 col-md-3">
@@ -43,7 +43,6 @@
           <div class="card-body">
             <p>Entire apartment in <%= flat.location %></p>
             <h4><%= flat.name %></h4>
-            <p class="card-text"> <%= flat.location %> <br>
             <i class="fas fa-dollar-sign"></i><%= flat.price %>
             <i class="fas fa-users"></i><%= flat.guests %>
             <i class="fas fa-bath"></i>  <%= flat.bathroom%>

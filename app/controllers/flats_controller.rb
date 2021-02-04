@@ -4,7 +4,11 @@ class FlatsController < ApplicationController
 
 
   def index
-    @flats = policy_scope(Flat).order(created_at: :desc).page params[:page]
+    if params["/"][:location].empty?
+      @flats = policy_scope(Flat).order(created_at: :desc).page params[:page]
+    else
+      @flats = policy_scope(Flat).near(params["/"][:location], 5).where(guests: params["/"][:guests] ).order(created_at: :desc).page params[:page]
+    end
 
 
     @flats_geo = @flats.geocoded
