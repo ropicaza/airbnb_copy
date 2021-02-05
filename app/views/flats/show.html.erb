@@ -27,7 +27,7 @@
         <h3>A bit more about this flat...</h3>
         <p><%= @flat.description %></p>
         <div id="map" style="width: 100%; height: 90vh;" data-markers="<%= @markers.to_json %>"	data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-		</div>	
+		</div>
       </div>
     </div>
     <div class="col-4">
@@ -39,7 +39,7 @@
         <% if @flat.owner == current_user %>
           <%=f.submit "Book", class: "btn btn-success mt-2", disabled: true %>
         <% else %>
-          <%=f.submit "Book", class: "btn btn-success mt-2" %>
+          <%=f.submit "Book", class: "btn btn-success mt-2", id: "sweet-alert-confirmation" %>
         <% end %>
         <% end %>
 
@@ -51,6 +51,7 @@
             <div class="dolar p-2">
               <i class="fas fa-dollar-sign"></i>
               <%= @flat.price %>
+              <i class="fas fa-users"></i> <%= @flat.guests %>
             </div>
 
               <% if @flat.wifi  %>
@@ -107,6 +108,7 @@
           <h5 class="card-title"> <strong><%= @flat_nearby.name %></h5></strong>
           <p class="card-text"> <%= @flat_nearby.location %> <br>
           <i class="fas fa-dollar-sign"></i><%= @flat_nearby.price %>
+          <i class="fas fa-users"></i> <%= @flat_nearby.guests %>
           <i class="fas fa-bath"></i>  <%= @flat_nearby.bathroom%>
           <i class="fas fa-bed"></i> <%= @flat.bedroom%>
           <% if @flat_nearby.pool  %>

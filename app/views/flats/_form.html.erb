@@ -8,6 +8,7 @@
     <%= f.input :price %>
     <%= f.input :bathroom, label: 'Bathrooms', :collection => 1..5 %>
     <%= f.input :bedroom, label: 'Bedrooms', :collection => 1..5 %>
+    <%= f.input :guests, label: 'Number of Guests', :collection => 1..5 %>
     <%= f.input :wifi, as: :boolean %>
     <%= f.input :pool, as: :boolean %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>

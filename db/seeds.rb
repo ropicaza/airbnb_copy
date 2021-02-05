@@ -8,7 +8,7 @@ User.destroy_all
 
 puts "Creating database.."
 
-FLAT_NAME = ["TU LUGAR EN EL CORAZÓN DE BUENOS AIRES", "COZY STUDIO WITH TERRACE IN BORN", "Cozy design apartment in the center", "SLEEP Universitat 1 Bedroom 1 Bathroom Apartment", "3 rooms, 2 bathrooms in the touristic city centre", "Diseño y tranquilidad", "Find Calm at a Neutral City Sanctuary with Sleek Style", "Spectacular Penthouse 2BR with River&Sunrise views", "Faena Apart", "Design-Savvy Apartment", "Excelente departamento tipo dúplex equipado", "BOUTIQUE LOFT", "SOLER ART STUDIOS", "Unforgettable Loft", "Espacio Guatemala"]
+FLAT_NAME = ["Luminoso 3 ambientes", "2 ambientes grande", "Cozy design apartment", "80 mts ideales", "touristic Recoleta", "Diseño y tranquilidad", "Santuario Pacifico", "Penthouse with a view", "Faena Apart", "Design-Savvy Apart", "Dúplex equipado", "Boutique loft", "Soler Art Studio", "Unforgettable Loft", "Espacio Guatemala"]
 
 FLAT_LOCATION = ["Palermo", "Microcentro", "Puerto Madero", "Almagro", "Belgrano", "Nuñez", "Saavedra", "Villa Urquiza", "Balvanera", "Caballito", "San Telmo", "Recoleta", "Retiro", "Montserrat", "Barrio Norte", "Flores", "Paternal", "Villa Crespo", "San Nicolas", "Colegiales"]
 
@@ -36,7 +36,7 @@ number_of_users.times do |i|
   if i > number_of_users / 2
     owners << user
     rand(1..3).times do
-      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample, wifi: arr_true.sample, pool: arr_true.sample, bathroom: rand(1..5,), bedroom: rand(1..6), rating: rand(1.0..5.0), address: ADDRESS.sample)
+      flat = Flat.create!(name: FLAT_NAME.sample, description: FLAT_DESCRIPTION.sample, price: rand(50..100), location: FLAT_LOCATION.sample, owner: owners.sample, wifi: arr_true.sample, pool: arr_true.sample, bathroom: rand(1..5,), bedroom: rand(1..6), rating: rand(1.0..5.0), address: ADDRESS.sample, guests: rand(1..5))
       IMAGES[i].each do |img|
       img_file = URI.open(img)
       flat.photos.attach(io: img_file, filename: 'flat_img.png', content_type: 'image/png')

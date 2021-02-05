@@ -1,54 +1,72 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://revistaroomin.com/wp-content/uploads/2019/11/experiencia-en-buenos-aires-argentina-por-evelyn-a499ed5e8f8c07ede302d13e4eedf932.jpg');">
   <div class="container">
-    <h1>Go Near</h1>
-    <h3>Book your next stay.</h3>
-    <nav class="navbar navbar-light bg-light rounded-pill px-5">
-      <div class="row">
-        <div class="col">
-          <p class="text-dark fs-6 fw-light mb-0">Location</p>
-          <input type="text" class="form-control" placeholder="Where are you going?" aria-label="Location">
+    <h1>Find a place to stay</h1>
+    <h3>Explore nearby places.</h3>
+      <%= simple_form_for root_path, url: flats_path, method: :get, html: { class: " m-0 py-3 px-4" } do |f| %>
+        <div class="row rounded-pill align-items-center justify-content-around p-2" id="booking-pill">
+          <div class="col-12 col-sm-12 col-md-3">
+            <%=f.input :location, as: :string, required: false, input_html: { placeholder:"Where?", id: "flat_address"} %>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">
+            <%=f.input :start_date, as: :string, required: false, input_html: {id: "range_start"} %>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">
+            <%=f.input :end_date,  as: :string, required: false, input_html: {id: "range_end"}  %>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">
+            <%= f.input :guests,
+            required: false,
+            collection: 1..5 ,
+            include_blank: false
+						  %>
+          </div>
+          <div class="col-1">
+				    <%= f.button :button, class: "btn btn-primary rounded-circle text-white", style: "width:50px;height:50px;" do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </div>
         </div>
-        <div class="col">
-          <p class="text-dark mb-0">Check in</p>
-          <input type="text" class="form-control" placeholder="Add dates" aria-label="Add dates">
-        </div>
-        <div class="col">
-          <p class="text-dark mb-0">Check out</p>
-          <input type="text" class="form-control" placeholder="Add dates" aria-label="Add dates">
-        </div>
-        <div class="col">
-          <p class="text-dark mb-0">Guests</p>
-          <input type="text" class="form-control" placeholder="Add guests" aria-label="Add guests">
-        </div>
-        <div class="col mb-0">
-          <%= link_to "Show Flats", flats_path, class: "btn btn-primary mt-4" %>
-        </div>
-      </div>
-    </nav>
-        
+      <% end %>
+
+
   </div>
 </div>
 
 <h2 class= "text-center my-5">Live anywhere you like</h2>
 
 <div class="container my-3">
-  <div class="row">
+  <div class="row justify-content-center">
     <% @flats.each do |flat| %>
-      <div class="col-12 col-md-4 col-lg-3 mt-3">
+      <div class="col-12 col-md-6 col-lg-3 mt-3">
         <div class="card h-100">
-          <%= cl_image_tag flat.photos.first.key %>
+          <%= cl_image_tag flat.photos.first.key, class: "w-100 mb-1" %>
           <div class="card-body">
             <p>Entire apartment in <%= flat.location %></p>
             <h4><%= flat.name %></h4>
-            <p>2 guests - Studio - 1 bed</p>
-              <div class="lower-price">
-                <i class="fas fa-tag"></i> New lower price
-              </div>
-                <p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+            <i class="fas fa-dollar-sign"></i><%= flat.price %>
+            <i class="fas fa-users"></i><%= flat.guests %>
+            <i class="fas fa-bath"></i>  <%= flat.bathroom%>
+						<i class="fas fa-bed"></i> <%= flat.bedroom%>
+            <% if flat.pool  %>
+							<i class="fas fa-swimmer"></i>
+						<% end  %>
+						<% if flat.wifi  %>
+							<i class="fas fa-wifi"></i>
+						<% end  %>
+            <p><strong>Rating:</strong> <% flat.rating.times do  %>
+							<i class="fas fa-star"></i>
+						<% end %></p>
+            <div class="align-center m-3">
+							<% if policy(flat).show? %>
+								<%= link_to "More Info", flat_path(flat)%>
+							<% end %>
+            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
 
