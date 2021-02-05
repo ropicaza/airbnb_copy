@@ -20,9 +20,11 @@
 			<h1>Sorry, there are no flats near the area you are looking for!</h1>
 		<% else %>
 			<% @flats.each do |flat| %>
-				<div class="card-product h-100">
-					<%= cl_image_tag flat.photos.sample.key %>
-					<div class="card-product-infos">
+				<div class="card-product row">
+					<div class="col-md-12 col-lg-4">
+						<%= cl_image_tag flat.photos.sample.key %>
+					</div>
+					<div class="card-product-infos col-md-12 col-lg-4 ml-lg-3 ml-md-0 ">
 						<p>Entire apartment in <%= flat.location %></p>
 						<h4><%= flat.name %></h4>
 						<i class="fas fa-dollar-sign"></i><%= flat.price %>
