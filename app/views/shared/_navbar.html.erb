@@ -13,8 +13,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+        <li class="nav-item active p-2">
+          <%= current_user.email %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://images.vexels.com/media/users/3/145908/list/52eabf633ca6414e60a7677b0b917d92-creador-de-avatar-masculino.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

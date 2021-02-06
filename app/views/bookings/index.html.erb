@@ -177,7 +177,7 @@
 												Some reviews about him:
 												<ul>
 													<% pending_booking.renter.reviews.each do |review| %>
-														<li><%= review.content %></li>
+														<li><%= review.content %>. Rating: <%= review.rating %></li>
 													<% end %>
 												</ul>
 											<% end %>				
