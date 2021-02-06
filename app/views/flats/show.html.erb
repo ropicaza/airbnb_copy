@@ -39,13 +39,13 @@
         <% if @flat.owner == current_user %>
           <%=f.submit "Book", id: "btn-disabled", class: "btn btn-success mt-2", disabled: true %>
         <% else %>
-          <%=f.submit "Book", class: "btn btn-success mt-2", id: "sweet-alert-confirmation" %>
+          <%=f.submit "Book", class: "btn btn-success mt-2 textclass", id: "sweet-alert-confirmation" %>
         <% end %>
         <% end %>
 
       </div>
       <div class="flat-show-card">
-        <h3>Details</h3>
+        <h3 class="text-dark">Details</h3>
         <div class="flex">
           <div class="d-flex">
             <div class="dolar p-2">

@@ -1,5 +1,5 @@
 
-	<div class="container my-2">
+	<div>
 		<% if @flats.length == 0 %>
 				<div class="row vh-100 text-center">
 					<div class="col-12">
@@ -24,7 +24,7 @@
 							<% @flats.each do |flat| %>
 								<div class="card-product row">
 									<div class="col-md-12 col-lg-4">
-											<%= cl_image_tag flat.photos.sample.key, class: "card-img-index" %>
+											<%= cl_image_tag flat.photos.first.key, class: "card-img-index" %>
 									</div>
 									<div class="card-product-infos col-md-12 col-lg-6 ml-lg-1 ml-md-0 ">
 											<p>Entire apartment in <%= flat.location %></p>
@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="col-5">
-						<div id="map" style="width: 100%; height: 100vh;" 
+						<div id="map" style="width: 100%; height: 100vh;"
 							data-markers="<%= @markers.to_json %>"
 							data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 						</div>

@@ -31,15 +31,15 @@ ro_flat_images5 = ["https://res.cloudinary.com/divzp8hs4/image/upload/v161197069
 
 
 # FLATS CREATION
-ro_flat = Flat.create!(name: "cálido 2 ambientes", description: "Hermoso 2 ambientes en privilegiada zona de Palermo. Departamento muy luminoso, al frente. Ideal para quien busca tranquilidad! Pileta incluida!", price: "200", location: "Palermo", owner: ro_user, wifi: true, pool: true, bathroom: 1, bedroom: 1, rating: 3, address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
+ro_flat = Flat.create!(name: "cálido 3 amb", description: "Hermoso 3 ambientes en privilegiada zona de Palermo. Departamento muy luminoso, al frente. Ideal para quien busca tranquilidad!", price: "200", location: "Palermo", owner: ro_user, wifi: true, pool: false, bathroom: 1, bedroom: 2, rating: 4, address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
 
-owner_flat = Flat.create!(name: "Cómodo estudio", description: "Luminoso estudio en una de las zonas mas vibrantes del barrio de Palermo", price: "400", location: "Palermo", owner: owner_user, wifi: true, pool: true, bathroom: 2, bedroom: 3, rating: 5, address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
+owner_flat = Flat.create!(name: "Gran Estudio", description: "Luminoso estudio en una de las zonas mas vibrantes del barrio de Palermo", price: "400", location: "Palermo", owner: owner_user, wifi: true, pool: true, bathroom: 2, bedroom: 3, rating: 4, address: "Paraguay 5301, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
 
 owner_flat1 = Flat.create!(name: "Exclusivo departamento", description: "Muebles de categoría, muy confortables, ideales para relajarse después de recorrer la ciudad de Buenos Aires.", price: "150", location: "Palermo", owner: owner_user, wifi: true, pool: false, bathroom: 1, bedroom: 2, rating: 2, address: "Bonpland 1874, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
 
-owner_flat2 = Flat.create!(name: "Boutique Loft", description: "Te esperamos en este loft de diseño único, ubicado en la mejor zona de Palermo Hollywood.", price: "225", location: "Palermo", owner: owner_user, wifi: true, pool: false, bathroom: 1, bedroom: 1, rating: 4, address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
+owner_flat2 = Flat.create!(name: "Boutique Loft 2 ambientes", description: "Te esperamos en este loft de diseño único, ubicado en la mejor zona de Palermo Hollywood.", price: "225", location: "Palermo", owner: owner_user, wifi: true, pool: false, bathroom: 1, bedroom: 1, rating: 4, address: "Fitz Roy 1834, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
 
-owner_flat3 = Flat.create!(name: "Luminoso monoambiente", description: "Acogedor departamento en el centro de Palermo. Llama la atención por su tranquilidad y su luminosidad.", price: "100", location: "Palermo", owner: owner_user, wifi: true, pool: false, bathroom: 1, bedroom: 1, rating: 4, address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
+owner_flat3 = Flat.create!(name: "Luminoso monoamb", description: "Acogedor departamento en el centro de Palermo. Llama la atención por su tranquilidad y su luminosidad.", price: "100", location: "Palermo", owner: owner_user, wifi: true, pool: false, bathroom: 1, bedroom: 1, rating: 4, address: "Soler 5608, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
 
 # IMAGES ATTACHING
 ro_flat_images.each do |img|
@@ -87,13 +87,13 @@ Booking.create!(renter: guido_user, flat: owner_flat, start_date: start_date - 3
 
 Review.create!(user: ro_user, booking: guido_experience, content: "Guido fue muy amable", rating: 5)
 
-Review.create!(user: ro_user, booking: guido_experience, content: "El renter fue un sucio", rating: 2)
+Review.create!(user: ro_user, booking: guido_experience, content: "La persona dejo el  lugar muy sucio", rating: 2)
 
 Review.create!(user: juan_user, booking: juan_experience, content: "Me gusto mucho el departamento. La dueña es una genia me dejo todo impecable. La zona es excelente ya que el barrio tiene mucha vida nocturna!", rating: 5)
 
-Review.create!(user: joaco_user, booking: joaco_experience, content: "El departamento es un sueño. Ubicado en pleno corazón del barrio de Palermo. Lo recomiendo!", rating: 4)
+Review.create!(user: joaco_user, booking: joaco_experience, content: "El departamento estaba en excelentes condiciones! Ubicado en pleno corazón del barrio de Palermo. Ideal para trabajar tranquilo o ir por una cerveza!", rating: 4)
 
-Review.create!(user: claudio_user, booking: claudio_experience, content: "Muy lindo departamento. Ideal para recorrer la ciudad a pie. Barrio seguro, ideal para turistas!", rating: 5)
+Review.create!(user: claudio_user, booking: claudio_experience, content: "Muy lindo departamento. Ideal para recorrer la ciudad a pie. Barrio seguro, excelente opcion para turistas! No se van a arrepentir!", rating: 5)
 
 
 puts "Owner: #{Booking.last.flat.owner.email} - ID: #{Booking.last.flat.owner.id}"
