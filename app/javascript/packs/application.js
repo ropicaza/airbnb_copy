@@ -38,28 +38,30 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initSweetalert('#sweet-alert-confirmation', {
+    title: "Congratulations!",
+    text: "You have booked this Flat, please wait for approval",
+    icon: "success",
+    closeOnConfirm: false,
+    timer: 3000,
+  });
+
+  initSweetalert('#sweet-alert-accepted', {
+    title: "Congratulations!",
+    text: "You have accepted this HOST",
+    icon: "success",
+    timer: 10000
+  });
+
+  initSweetalert('#sweet-alert-rejected', {
+    title: "Oh No!",
+    text: "You have rejected this HOST",
+    icon: "error",
+    timer: 10000
+   });
+
   initMapbox();
   initAutocomplete();
   initflatpickr();
-});
 
-initSweetalert('#sweet-alert-confirmation', {
-  title: "Congratulations!",
-  text: "You have booked this Flat, please wait for approval",
-  icon: "success",
-  timer: 10000
-});
-
-initSweetalert('#sweet-alert-accepted', {
-  title: "Congratulations!",
-  text: "You have accepted this HOST",
-  icon: "success",
-  timer: 10000
-});
-
-initSweetalert('#sweet-alert-rejected', {
-  title: "Oh No!",
-  text: "You have rejected this HOST",
-  icon: "error",
-  timer: 10000
 });
