@@ -26,7 +26,7 @@ arr_true = [true, false]
 
 ADDRESS = ["Niceto Vega 4770", "Garzon 3053", "Arenales 2644", "Yrigoyen 3057", "Cochabamba 2849", "Jujuy 2013", "Av. Alicia Moreau de Justo 740" ]
 
-
+start_date = Date.today
 
 number_of_users = 5
 renters = []
@@ -43,7 +43,6 @@ number_of_users.times do |i|
       flat.save
       end
       rand(2..5).times do
-        start_date = Date.today + rand(3..15).days
         Booking.create!(renter: renters.sample, flat: Flat.last, start_date: start_date, end_date: start_date + rand(3..15).days, status: "pending"  )
       end
     end
@@ -51,6 +50,31 @@ number_of_users.times do |i|
     renters << user
   end
 end
+
+ro_user = User.create!(password: "123456", email: "ropicaza@gmail.com")
+tom_user = User.create!(password: "123456", email: "tomagnese@gmail.com")
+joaco_user = User.create!(password: "123456", email: "joaquincasanova@gmail.com")
+guido_user = User.create!(password: "123456", email: "guidotiba@gmail.com")
+juan_user = User.create!(password: "123456", email: "juanperez@gmail.com")
+
+ro_flat_images = ["https://res.cloudinary.com/divzp8hs4/image/upload/v1611970696/Airbnb-clone/naomi-hebert-MP0bgaS_d1c-unsplash_v1szud.jpg", "https://res.cloudinary.com/divzp8hs4/image/upload/v1611970694/Airbnb-clone/douglas-sheppard-9rYfG8sWRVo-unsplash_lopwx2.jpg", "https://res.cloudinary.com/divzp8hs4/image/upload/v1611970692/Airbnb-clone/depto_3_a4mbpr.jpg", "https://res.cloudinary.com/divzp8hs4/image/upload/v1611970692/Airbnb-clone/living_4_vgldlu.jpg", "https://res.cloudinary.com/divzp8hs4/image/upload/v1611970691/Airbnb-clone/bedroom_lhwbtt.jpg"]
+
+ro_flat = Flat.create!(name: "cálido 2 ambientes", description: "Hermoso 2 ambientes en privilegiada zona de Palermo. Departamento muy luminoso, al frente. Ideal para quien busca tranquilidad! Pileta incluida!", price: "200", location: "Palermo", owner: ro_user, wifi: true, pool: true, bathroom: 1, bedroom: 1, rating: 3, address: "Humboldt 2120, Buenos Aires, Ciudad Autónoma de Buenos Aires, Argentina", guests: 2)
+
+ro_flat_images.each do |img|
+  ro_img_file = URI.open(img)
+  ro_flat.photos.attach(io: ro_img_file, filename: 'flat_img.png', content_type: 'image/png')
+  ro_flat.save
+end
+
+Booking.create!(renter: joaco_user, flat: ro_flat, start_date: start_date - 30.days, end_date: start_date - 20.days, status: "accepted")
+guido_experience = Booking.create!(renter: guido_user, flat: ro_flat, start_date: start_date - 100.days, end_date: start_date - 90.days, status: "accepted")
+juan_experience = Booking.create!(renter: juan_user, flat: ro_flat, start_date: start_date - 200.days, end_date: start_date - 180.days, status: "accepted")
+Booking.create!(renter: guido_user, flat: ro_flat, start_date: start_date + 30.days, end_date: start_date + 40.days, status: "pending")
+
+Review.create!(user: guido_user, booking: guido_experience, content: "El departamento esta muy bien pero anduvo muy flojo el Wifi. Le daria una segunda oportunidad", rating: 2)
+
+Review.create!(user: juan_user, booking: juan_experience, content: "Me gusto mucho el departamento. La dueña es una genia me dejo todo impecable. La zona es excelente ya que el barrio tiene mucha vida nocturna!", rating: 5)
 
 puts "Owner: #{Booking.last.flat.owner.email} - ID: #{Booking.last.flat.owner.id}"
 puts "Renter: #{Booking.last.renter.email} - ID: #{Booking.last.renter.id}"
