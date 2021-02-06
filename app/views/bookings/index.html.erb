@@ -1,4 +1,4 @@
-<div class="container p-5">
+<div class="container p-5" style="min-height: 800px">
 <div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -42,7 +42,7 @@
 										<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
 									<% end %>
 									<% if policy(flat).destroy? %>
-										<% if flat.bookings.present? %>
+										<% if @bookings_pending.count > 0 %>
 											<p class="text-danger">Remove (delete reservations)</p>
 										<% else %>
 											<%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" }, class:"text-danger justify-content-end" %>
@@ -109,10 +109,10 @@
 								<% if booking.reviews.where(user: current_user).blank? %>
 									<% if booking.end_date < Date.today %>
 										<%= link_to 'Review this flat!', new_booking_review_path(booking) %>
-									<% end %>	
+									<% end %>
 								<% end %>
 							</div>
-							
+
 						</div>
 					</div>
 					<% end %>
@@ -180,7 +180,7 @@
 														<li><%= review.content %>. Rating: <%= review.rating %></li>
 													<% end %>
 												</ul>
-											<% end %>				
+											<% end %>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -226,8 +226,8 @@
 										<% if accepted_booking.reviews.where(user: current_user).blank? %>
 											<% if accepted_booking.end_date < Date.today %>
 												<%= link_to 'Review your renter!', new_booking_review_path(accepted_booking) %>
-											<% end %>	
-										<% end %>										
+											<% end %>
+										<% end %>
 									</div>
 								</div>
 							</div>
