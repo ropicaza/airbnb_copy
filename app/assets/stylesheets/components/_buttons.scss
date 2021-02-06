@@ -11,3 +11,19 @@
 .btn-link {
 	color: $magnolia;
 }
+
+.btn-booking{
+	background-color: #EFEFEF;
+	border-color: #767676;
+	height: 30px;
+	width: 70px;
+	text-align: inherit;
+	padding-top: 3px;
+}
+
+
+.btn-booking:hover {
+	background-color: #E5E5E5;
+	border-color: #4F4F4F;
+  }
+
