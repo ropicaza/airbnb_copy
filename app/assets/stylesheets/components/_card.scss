@@ -48,6 +48,10 @@
   height: 100%;
 }
 
+.card-img-index {
+  object-fit: contain;
+}
+
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {
 //   .card-product {
