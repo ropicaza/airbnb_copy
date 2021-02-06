@@ -32,7 +32,7 @@ class FlatsController < ApplicationController
       }
     end
     @booking = Booking.new
-    @flat_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id ).sample
+    @flats_nearby = Flat.where( location: @flat.location ).where.not( id: @flat.id )
   end
 
   def create
