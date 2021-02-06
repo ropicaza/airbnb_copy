@@ -1,56 +1,64 @@
-<div class="index-container">
-	<div class="skeleton">
-		<div class="intro">
-			<% if params["/"][:location].empty? %>
-				<h1>Excelent places to stay!</h1>
-			<% else %>
-				<h1>Places in <%= params["/"][:location].match(/^(.+?),/)%> enjoy your visit!</h1>
-			<% end %>
-			<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="https://www.airbnb.com/help/topic/1418/government-travel-restrictions-and-advisories" style="text-decoration: underline; color: black" target="_blank"> Learn more</a></p>
-	</div>
 
-<div class="cards">
+	<div class="container my-2">
 		<% if @flats.length == 0 %>
-			<h1>Sorry, there are no flats near the area you are looking for!</h1>
-		<% else %>
-			<% @flats.each do |flat| %>
-				<div class="card-product row">
-					<div class="col-md-12 col-lg-4">
-						<%= cl_image_tag flat.photos.first.key %>
-					</div>
-					<div class="card-product-infos col-md-12 col-lg-4 ml-lg-3 ml-md-0 ">
-						<p>Entire apartment in <%= flat.location %></p>
-						<h4><%= flat.name %></h4>
-						<i class="fas fa-dollar-sign"></i><%= flat.price %>
-            <i class="fas fa-users"></i><%= flat.guests %>
-            <i class="fas fa-bath"></i>  <%= flat.bathroom%>
-						<i class="fas fa-bed"></i> <%= flat.bedroom%>
-            <% if flat.pool  %>
-							<i class="fas fa-swimmer"></i>
-						<% end  %>
-						<% if flat.wifi  %>
-							<i class="fas fa-wifi"></i>
-						<% end  %>
-						
-						<% if flat == @flats[0] %>
-							<div class="lower-price">
-								<i class="fas fa-tag"></i> New lower price
-							</div>
-							
-						<% end %>
-						
-							<p><i class="fas fa-star"></i> <%= flat.rating %> </p>
-							<%= link_to "More Info", flat_path(flat)%>
+				<div class="row vh-100 text-center">
+					<div class="col-12">
+						<h1>Sorry, there are no flats near the area you are looking for!</h1>
 					</div>
 				</div>
-			<% end %>
-			</div>
-				<%= paginate @flats, theme: 'twitter-bootstrap-4' %>
-			</div>
-
-			<div id="map" style="width: 40%; height: 100vh;"
-				data-markers="<%= @markers.to_json %>"
-				data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+		<% else %>
+			<div>
+				<div class="row">
+					<div class="col-7">
+						<div class="skeleton">
+							<div class="intro p-2">
+							<% if params["/"][:location].empty? %>
+								<h1>Excelent places to stay!</h1>
+							<% else %>
+								<h1>Places in <%= params["/"][:location].match(/^(.+?),/)%> enjoy your visit!</h1>
+							<% end %>
+								<p class="my-2">Review COVID-19 travel restrictions before you book. <a href="https://www.airbnb.com/help/topic/1418/government-travel-restrictions-and-advisories" style="text-decoration: underline; color: black" target="_blank"> Learn more</a></p>
+							</div>
+						</div>
+						<div class="cards v-100">
+							<% @flats.each do |flat| %>
+								<div class="card-product row">
+									<div class="col-md-12 col-lg-4">
+											<%= cl_image_tag flat.photos.sample.key, class: "card-img-index" %>
+									</div>
+									<div class="card-product-infos col-md-12 col-lg-6 ml-lg-1 ml-md-0 ">
+											<p>Entire apartment in <%= flat.location %></p>
+											<h4><%= flat.name %></h4>
+											<i class="fas fa-dollar-sign"></i><%= flat.price %>
+											<i class="fas fa-users"></i><%= flat.guests %>
+											<i class="fas fa-bath"></i>  <%= flat.bathroom%>
+											<i class="fas fa-bed"></i> <%= flat.bedroom%>
+											<% if flat.pool  %>
+												<i class="fas fa-swimmer"></i>
+											<% end  %>
+											<% if flat.wifi  %>
+												<i class="fas fa-wifi"></i>
+											<% end  %>
+											<% if flat == @flats[0] %>
+												<div class="lower-price">
+													<i class="fas fa-tag"></i> New lower price
+												</div>
+											<% end %>
+												<p><i class="fas fa-star"></i> <%= flat.rating %></p>
+												<%= link_to "More Info", flat_path(flat)%>
+									</div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-5">
+						<div id="map" style="width: 100%; height: 100vh;" 
+							data-markers="<%= @markers.to_json %>"
+							data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+						</div>
+					</div>
+				</div>
 			</div>
 		<% end %>
-</div>
+		<%= paginate @flats, theme: 'twitter-bootstrap-4' %>
+	</div>

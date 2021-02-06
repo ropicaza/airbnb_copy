@@ -36,10 +36,10 @@
 								</div>
 								<div class="d-flex justify-content-between m-3">
 									<% if policy(flat).show? %>
-										<%= link_to "More Info", flat_path(flat)%>
+										<%= link_to "More Info", flat_path(flat), class:"text-muted text-wrap"%>
 									<% end %>
 									<% if policy(flat).edit? %>
-										<%= link_to "Update", edit_flat_path(flat), class:"text-warning" %>
+										<%= link_to "Update", edit_flat_path(flat), class:"text-success text-wrap" %>
 									<% end %>
 									<% if policy(flat).destroy? %>
 										<% if @bookings_pending.count > 0 %>
