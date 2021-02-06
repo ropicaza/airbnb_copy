@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to flat_path(@flat)
+      sleep(2)
+      redirect_to root_path
     else
       @flats = Flat.all
       render "flats/show"
@@ -42,11 +43,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(bookings_params)
-      flash["alert"] = "Congratulations! You have accepted one booking"
-    else
-      flash["alert"] = "Sorry, your booking status couldn't be updated"
-    end
+    @booking.update(bookings_params)
+    sleep(2)
     redirect_to bookings_path
   end
 

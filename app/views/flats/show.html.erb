@@ -116,35 +116,36 @@
 
 <div class="container mt-3">
 <h1>Other Flats Nearby</h1>
-  <div class="row">
-    <div class="col-6 col-md-4 col-lg-3 mt-3">
-      <div class="card">
-      <% if @flat_nearby %>
-        <%= cl_image_tag @flat_nearby.photos.first.key %>
-        <div class="card-body bg-light">
-          <p class="color-text">Entire apartment in <%= @flat_nearby.location %></span></p>
-          <h5 class="card-title"> <strong><%= @flat_nearby.name %></h5></strong>
-          <p class="card-text"> <%= @flat_nearby.location %> <br>
-          <i class="fas fa-dollar-sign"></i><%= @flat_nearby.price %>
-          <i class="fas fa-users"></i> <%= @flat_nearby.guests %>
-          <i class="fas fa-bath"></i>  <%= @flat_nearby.bathroom%>
-          <i class="fas fa-bed"></i> <%= @flat.bedroom%>
-          <% if @flat_nearby.pool  %>
-          <i class="fas fa-swimmer"></i>
-          <% end  %>
-          <% if @flat_nearby.wifi  %>
-          <i class="fas fa-wifi"></i>
-          <% end  %>
-          <p><strong>Rating:</strong> <% @flat_nearby.rating.times do  %> <i class="fas fa-star"></i>
-          <% end %></p>
-       </div>
-        <div class="m-3">
-          <%= link_to "More Info", flat_path(@flat_nearby)%>
+  <div class="row justify-content-between">
+    <% if @flats_nearby.length > 0 %>
+      <% @flats_nearby.each do |flat_nearby| %>
+        <div class="col-12 col-md-4 col-lg-3 mt-3">
+          <div class="card">
+            <%= cl_image_tag flat_nearby.photos.first.key %>
+            <div class="card-body bg-light">
+              <p class="color-text">Entire apartment in <%= flat_nearby.location %></span></p>
+              <h5 class="card-title"> <strong><%= flat_nearby.name %></h5></strong>
+              <i class="fas fa-dollar-sign"></i><%= flat_nearby.price %>
+              <i class="fas fa-users"></i> <%= flat_nearby.guests %>
+              <i class="fas fa-bath"></i>  <%= flat_nearby.bathroom%>
+              <i class="fas fa-bed"></i> <%= flat_nearby.bedroom%>
+              <% if flat_nearby.pool  %>
+                <i class="fas fa-swimmer"></i>
+              <% end  %>
+              <% if flat_nearby.wifi  %>
+                <i class="fas fa-wifi"></i>
+              <% end  %>
+              <p><strong>Rating:</strong> <% flat_nearby.rating.times do  %> <i class="fas fa-star"></i>
+              <% end %></p>
+            </div>
+            <div class="m-3">
+              <%= link_to "More Info", flat_path(flat_nearby)%>
+            </div>
+          </div>
         </div>
-      <% else %>
-        <p>No flats nearby</p>
       <% end %>
-    </div>
-  </div>
+    <% else %>
+      <p>No flats nearby</p>
+    <% end %>
   </div>
 </div>

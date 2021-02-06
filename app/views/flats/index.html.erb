@@ -39,10 +39,12 @@
 											<% if flat.wifi  %>
 												<i class="fas fa-wifi"></i>
 											<% end  %>
+											<% if flat == @flats[0] %>
 												<div class="lower-price">
 													<i class="fas fa-tag"></i> New lower price
 												</div>
-												<p><i class="fas fa-star"></i> <%= rand(3.0..5.0).round(2) %></p>
+											<% end %>
+												<p><i class="fas fa-star"></i> <%= flat.rating %></p>
 												<%= link_to "More Info", flat_path(flat)%>
 									</div>
 								</div>
