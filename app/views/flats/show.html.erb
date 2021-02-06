@@ -96,6 +96,24 @@
 </div>
 
 
+<div class="container mt-5">
+<h1>Flat Reviews</h1>
+  <div class="row">
+    <% @flat.renter_reviews.each do |review| %>
+        <div class="col-12 col-md-6 col-lg-4 mt-3 d-flex align-items-stretch">
+            <div class="testimonial p-3 bg-secondary text-center rounded"><i class="fas fa-quote-right fa-2x"></i>
+              <p><%= review.content %></p>
+              <div class="card-footer mt-auto">
+                <p><strong>Rating:</strong><% review.rating.times do  %> <i class="fas fa-star"></i>
+                <% end %></p>
+                <h5><strong><%= review.user.email %></strong></h5>
+              </div>
+            </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="container mt-3">
 <h1>Other Flats Nearby</h1>
   <div class="row">

@@ -11,7 +11,7 @@
     <%= f.input :guests, label: 'Number of Guests', :collection => 1..5 %>
     <%= f.input :wifi, as: :boolean %>
     <%= f.input :pool, as: :boolean %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true, required: true } %>
     <%= f.submit %>
   <% end %>
 </div>
