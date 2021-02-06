@@ -100,7 +100,7 @@
 <h1>Flat Reviews</h1>
   <div class="row">
     <% @flat.renter_reviews.each do |review| %>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 d-flex align-items-stretch">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 d-flex align-items-stretch rounded">
             <div class="testimonial p-3 bg-secondary text-center rounded"><i class="fas fa-quote-right fa-2x"></i>
               <p><%= review.content %></p>
               <div class="card-footer mt-auto">
